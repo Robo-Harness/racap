@@ -1,0 +1,140 @@
+You are producing a TIER-2 spatial critique for a SUB-AGENT probe.
+
+A Tier-1 outcome judge has already looked at (reset, terminal, wrist)
+and DECIDED the attempt failed. Your job now is different: use the
+full motion filmstrip below to tell the next attempt WHAT TO CHANGE,
+as a concrete spatial delta (axis + direction + magnitude).
+
+Do NOT re-litigate the outcome verdict. Tier-1's decision stands for
+`visual_success`. If you genuinely believe Tier-1 was wrong and the
+terminal frame does realize the subgoal, note that in
+`policy_feedback` but still fill the spatial critique — the tiers
+disagreeing is a valid signal for the outer loop but is not grounds
+for flipping the outcome here.
+
+Image layout (provided to you above this prompt):
+  - image 1     = RESET state (before any action ran).
+  - image N     = TERMINAL state (after the code finished).
+  - images 2..N-1 = evenly-sampled MOTION frames between reset and
+                    terminal. These are where you do the real work —
+                    approach direction, descent height, when the
+                    gripper closed, which side of the target it ended
+                    up on.
+  - image N+1 (if present) = wrist camera at terminal state.
+
+---
+
+CRITIQUE RULES
+
+1. Failure-mode taxonomy — pick ONE for `failure_mode`:
+     - grasp_failure         (tried to grasp, did not secure the object)
+     - navigation_error      (arm ended up in the wrong region)
+     - wrong_object          (operated on something other than the
+                              subgoal target)
+     - wrong_affordance      (touched the right object but on the wrong
+                              feature — e.g. mug body vs. handle, door
+                              face vs. pull-bar)
+     - collision             (contact pushed something out of the
+                              workspace or destabilized the scene)
+     - partial_completion    (clear progress but not fully realized)
+     - code_bug              (stderr or visible runtime failure)
+     - nothing_happened      (no meaningful motion)
+
+2. `policy_feedback` MUST be a concrete spatial delta. Prefer "shift
+   the pre-grasp pose ~3 cm in -x (toward the camera) so the jaws
+   straddle the package body, not the empty table in front of it"
+   over "approach more directly over the target".
+   When the wrist frame shows the gripper closed on empty space, name
+   which side of the target the jaws ended up on (left/right/in front
+   of/behind, in image-frame language relative to the agent view) and
+   estimate the offset in centimeters, gripper widths, or fractions
+   of the target's longest visible dimension. Reference specific
+   motion frames when useful (e.g. "frame 3 shows the wrist already
+   past the mug; the descent in frames 4-5 was outside its
+   silhouette").
+   If ALL prior sub-agent attempts used the same physical approach
+   and failed the same way, ESCALATE the change you propose — call
+   out that small offsets have not worked and recommend a different
+   grasp feature (handle vs. body, side wall vs. top rim) or a
+   different approach axis. Do NOT prescribe a specific primitive;
+   describe the physical change.
+   If pointcloud/grasp diagnostics are present, remember that they are
+   snapshots from the perception call time. Before recommending reuse
+   of a prior pointcloud, centroid, or grasp candidate, check whether
+   later arm/gripper motion could have moved the object. If yes or
+   uncertain, tell the next attempt to recompute perception from a
+   fresh current observation and reuse only the successful high-level
+   feature/strategy, not the stale numeric coordinates.
+   Then decide the edit scale for the next sub-agent attempt. Prefer
+   an argument-level fix when the same primitive/helper sequence is
+   physically appropriate but needs a different target text, offset,
+   approach axis, release height, label, threshold, or retry count.
+   Recommend a larger rewrite/replacement only when arguments cannot
+   express the needed spatial change, the primitive/helper is wrong for
+   the subgoal, repeated argument-level fixes already failed the same
+   way, or there is a concrete code bug.
+
+3. `plan_issue` is almost always false for a sub-agent probe (the
+   "plan" is a single-step free-form subgoal — no structure to fix).
+   Only set true if the subgoal itself is incoherent given the scene.
+
+4. `subagent_skill_target` must be null — we are already inside a
+   sub-agent. Do not recursively spawn.
+
+5. `tier1_disagreement` is a NEW field. Set to true ONLY if after
+   studying the motion frames you believe Tier-1 was wrong and the
+   attempt actually succeeded. When true, briefly justify in
+   `policy_feedback` ("tier1 called failure but motion frame N-1
+   shows the butter ~4cm off the table in the gripper's grasp").
+   Default false.
+
+---
+
+Respond with a single fenced JSON block matching this schema EXACTLY:
+
+```json
+{
+  "failed_step": "step-1",
+  "failure_mode": "<one of the taxonomy entries>",
+  "confidence": 0.8,
+  "plan_issue": false,
+  "plan_issue_reason": "",
+  "subagent_skill_target": null,
+  "subagent_skill_target_reason": "",
+  "tier1_disagreement": false,
+  "visual_predicate_status": [
+    {
+      "step_id": "step-1",
+      "description": "<echo the subgoal description>",
+      "visually_satisfied": false,
+      "evidence": "<what the motion frames show about HOW the arm ended up where it did — e.g. 'approach in frames 2-3 arcs to the left of the package; descent in frames 4-5 closes ~4 cm shy in -x'>"
+    }
+  ],
+  "policy_feedback": "<a concrete spatial delta the next attempt must apply, citing axis + direction + magnitude (cm or gripper-widths) and, when relevant, the motion frame that supports the diagnosis. First state the edit scale: either 'argument-level' or 'rewrite-needed'. If argument-level, name the primitive/helper call and arguments to change; prefer preserving the function sequence. If rewrite-needed, explain why arguments cannot express the fix. Example: 'argument-level: in frame 3 the wrist is ~4cm past the mug in +y; keep the grasp helper but shift its pre-grasp target by ~4cm in -y so the jaws straddle the body instead of closing on table behind it.' Avoid generic phrasing like 'centre the gripper'.>"
+}
+```
+
+# === ATTEMPT-SPECIFIC INPUTS BELOW (vary per call; everything above is stable for cache reuse) ===
+
+SUB-AGENT SUBGOAL (single-step plan):
+{plan_steps}
+
+EXECUTED CODE:
+```python
+{code}
+```
+
+AFFORDANCE HINTS (from the task proposer; may be empty):
+{affordance_hints}
+
+TIER-1 OUTCOME EVIDENCE (the terminal-frame cue the outcome judge
+cited when it called this a failure):
+{tier1_evidence}
+
+PRIOR SUB-AGENT ATTEMPTS ON THIS SAME SUBGOAL (most recent last):
+{prior_attempts}
+
+STDOUT (tail, may be empty):
+{stdout}
+STDERR (tail, may be empty):
+{stderr}

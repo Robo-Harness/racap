@@ -1,0 +1,115 @@
+# CaP-Agent0 LIBERO object-swap eval with RATS skill library — STRONG mode.
+# Combines three changes vs the planner-mode variant so RATS skills actually
+# contribute instead of being silently ignored by the policy writer:
+#
+#   1. external_skill_library_mode: direct
+#      -> skip the planner LLM, append ALL skills to the policy writer's
+#         prompt every turn (up to max_skills cap).
+#   2. external_skill_inject_into_namespace: true (new field)
+#      -> exec() each skill's `code` body into the user-code exec scope so
+#         the LLM can CALL learned skills by name without copy/adapt.
+#   3. format_external_skills_for_prompt(..., injected_into_scope=True)
+#      -> rewrite the prompt intro from "copy or adapt these references"
+#         to "PRE-LOADED HELPER FUNCTIONS, call directly by name". Removes
+#         the old "not automatically imported" sentence the LLM was treating
+#         as a hint to ignore the skills.
+#
+# Launch:
+#   cd capx-baseline && CUDA_VISIBLE_DEVICES=1,2,3,4 MUJOCO_GL=egl \
+#   TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1 python -m capx.envs.scripts.run_libero_batch \
+#     --args.base-config-path env_configs/libero/franka_libero_cap_agent0_object_swap_5trials_noensemble_multiturn_video_rats_skills_strong.yaml \
+#     --args.suites libero_object_swap \
+#     --args.models google/gemini-3.1-pro-preview \
+#     --args.total-trials 5 \
+#     --args.num-workers 4 \
+#     --args.record-video True --args.use-img-differencing True \
+#     --args.server-url http://127.0.0.1:8110/chat/completions \
+#     --args.output-dir outputs/capx_eval_rats_skills_strong_object_swap_4w
+
+env:
+  _target_: capx.envs.tasks.franka.franka_libero_env.FrankaLiberoCodeEnv
+  cfg:
+    _target_: capx.envs.tasks.base.CodeExecEnvConfig
+    low_level:
+      _target_: capx.envs.simulators.libero.FrankaLiberoEnv
+      suite_name: libero_object_swap
+      task_id: 0
+      privileged: false
+      max_steps: 8000
+      control_freq: 20
+    privileged: false
+    apis:
+      - FrankaLiberoApiReducedSkillLibrary
+    external_skill_library_path: ../skill_library/libero_main_30iter.json
+    # ★ option 1: direct mode — all skills appended to prompt at env init.
+    external_skill_library_mode: direct
+    # Cap skills shown / injected. 12 is enough coverage without ballooning
+    # the prompt to 30k+ chars; the RATS library has 22 learned skills but
+    # the top 12 by tier ordering cover the pick-place / open-door / place-in
+    # patterns that match libero_object_swap.
+    external_skill_library_max_skills: 12
+    external_skill_library_include_code: true
+    external_skill_library_include_primitives: false
+    # ★ option 2 + 3: inject skills into exec scope AND rewrite prompt intro
+    # to claim they're pre-loaded callables (the prompt-side change is
+    # auto-driven by this flag inside _make_task_prompt).
+    external_skill_inject_into_namespace: true
+    # Planner-mode knobs (unused in direct mode but kept so the YAML
+    # schema validates):
+    external_skill_planner_max_selected: 6
+    external_skill_planner_include_code: false
+    external_skill_policy_include_code: true
+    external_skill_planner_model: google/gemini-3.1-pro-preview
+    prompt: |
+      You are controlling a Franka Emika robot with API described below.
+      Goal: {libero_environment_goal}
+      You may write python code comments for reasoning but ONLY write the executable Python code and do not write it in code fences.
+      After this code executes, you will be able to get a new observation of the environment and write new code to complete the task if needed.
+      The functions (APIs) below are already imported to the environment. If you want to use numpy, you need to import it explicitly.
+
+    multi_turn_prompt: |
+      The following code blocks were just executed:
+      ```python
+      {executed_code}
+      ```
+      The current console stdout is:
+      ```
+      {console_stdout}
+      ```
+      The current console stderr is:
+      ```
+      {console_stderr}
+      ```
+      If there were no errors during compilation or execution, the console stderr will be empty. If there were errors, consider regenerating the code.
+      Please respond with EXACTLY ONE of the following:
+      - The word 'REGENERATE' followed immediately by new Python code in a fenced code block (```python...```) if you want to modify the code.
+      - The word 'FINISH' if the task appears to be complete
+
+api_servers:
+  - _target_: capx.serving.launch_pyroki_server.main
+    port: 8116
+    host: 127.0.0.1
+    robot: panda_description
+    target_link: panda_hand
+
+  - _target_: capx.serving.launch_contact_graspnet_server.main
+    port: 8115
+    host: 127.0.0.1
+
+  - _target_: capx.serving.launch_sam3_server.main
+    device: cuda
+    port: 8114
+    host: 127.0.0.1
+
+record_video: true
+output_dir: ./outputs/capx_eval_rats_skills_strong_object_swap_4w
+use_img_differencing: true
+save_multiturn_prompts: true
+save_skill_planner_prompts: true
+use_parallel_ensemble: false
+use_multimodel: false
+evolve_skill_library: true
+skill_library_path: ./outputs/capx_eval_rats_skills_strong_object_swap_4w/skills.json
+
+trials: 5
+num_workers: 1

@@ -1,0 +1,76 @@
+You are a robot task planner REVISING a previous plan that has failed.
+The trajectory revealed a structural problem with the plan itself — the
+step ordering, missing prerequisites, or infeasible sequencing is what
+blocked success, not a local coding error. Produce a new plan that
+fixes the STRUCTURAL issue.
+
+A current agentview image of the initial scene may be attached below.
+When present, INSPECT IT: the next attempt will start from this state,
+so the revised plan must be reachable from what you see. Check the
+state of any articulated elements, object positions, and clutter
+before committing to a new step order. Stay task-agnostic — describe
+what you see, do not assume a prototype layout.
+
+AVAILABLE PRIMITIVES (lower-level building blocks — use only when no learned skill fits):
+{primitive_list}
+
+Create a REVISED step-by-step plan. For each step, specify which existing
+skills/primitives to use and whether a new skill needs to be written.
+
+IMPORTANT:
+- Directly ADDRESS the structural diagnosis below. If the diagnosis says
+  an ordering is wrong, reorder. If it says a prerequisite is missing,
+  insert the prerequisite before the dependent step.
+- You may completely rewrite the plan OR apply minimal edits. Whichever
+  results in a sound sequence is fine — do not over-preserve the old plan
+  if it's fundamentally broken.
+- Keep step IDs in the conventional "step-N" form (step-1, step-2, ...).
+  Renumber after reordering so IDs stay monotonic top-to-bottom.
+- Learned skills (in the LEARNED SKILLS section below) were extracted from
+  past successful solutions to similar tasks. Reuse them by name whenever
+  they match a step's intent.
+- When listing a skill in "relevant_skills", use its EXACT name.
+- For pick-and-place revisions, do not add a standalone post-grasp
+  holding/wrist-visibility gate that can block all later placement. If
+  the grasp succeeded, the revised plan should proceed to target
+  localization, placement/release, and final verification.
+- The robot may expose two cameras: agent-view (`obs["agentview"]`) gives a
+  fixed wide shot, and wrist-camera (`obs["robot0_eye_in_hand"]`) is mounted
+  on the gripper. Use wrist-view helpers only when they are actually listed
+  in AVAILABLE PRIMITIVES. If `inspect_at_wrist` is listed and the scene is
+  cluttered, plan a step that calls `inspect_at_wrist(target_world_pos)`
+  AFTER initial agent-view localization and BEFORE grasping. If
+  `inspect_at_wrist` is NOT listed, do not plan that helper; use available
+  observation / segmentation / pointing primitives instead.
+
+Respond in JSON with a "steps" array AND a top-level "prediction_card"
+object. Each step has: "id" (string like "step-1"), "description"
+(string), "relevant_skills" (list of skill name strings), "skill_code"
+(string, empty for primitives), "new_skill_needed" (boolean), "notes"
+(string).
+
+The "prediction_card" must contain: "predicted_success_probability"
+(0.0-1.0), "predicted_bottleneck_step", and "prediction_reasoning".
+Re-estimate success probability after this plan revision.
+
+# === ITERATION-SPECIFIC INPUTS BELOW (vary per attempt; everything above is stable for cache reuse) ===
+
+LEARNED SKILLS FROM PRIOR SUCCESSFUL RUNS (with code). PREFER THESE OVER BUILDING FROM PRIMITIVES:
+{selected_skills}
+
+## RECENT LESSONS FROM PAST FAILURES (advisory — gate by the metadata footer)
+{failure_lessons}
+Each lesson uses a "WHEN ... | WRONG ... | DO ..." shape with a metadata footer like `(confidence=0.80, applied=5× helped=1×, last_helped=iter4 (2 iters ago), distilled=iter2 (4 iters ago))`. PRIORITY ORDER for plan restructuring: (1) the structural diagnosis on THIS attempt (in PRIOR ATTEMPTS below) — it saw the actual trajectory; (2) lessons with high helped/applied AND recent last_helped — adopt their DO; (3) stale or low-reliability lessons — background prior only, don't reorder around them when current evidence disagrees.
+
+TASK: {task_description}
+GOAL CONDITIONS: {goal_conditions}
+OBJECT SCOPE: {object_scope}
+
+PREVIOUS PLAN (that failed):
+{old_plan}
+
+DIAGNOSER'S STRUCTURAL DIAGNOSIS (what is wrong at the plan level):
+{plan_issue_reason}
+
+PRIOR ATTEMPTS SUMMARY (what has been tried + how it failed):
+{prior_attempts_summary}

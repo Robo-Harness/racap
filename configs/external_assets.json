@@ -1,0 +1,64 @@
+{
+  "assets": [
+    {
+      "path": "experiments/controlled_comparison/assets/libero_long_all_to_basket/init_files/libero_long_all_to_basket/LIVING_ROOM_SCENE2_put_all_tabletop_objects_in_the_basket.pruned_init",
+      "sha256": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+      "bytes": 58927
+    },
+    {
+      "path": "third_party/rats/capx-baseline/skill_libraries/libero_iter050.json",
+      "sha256": "42de6bac20f94d53e1d2cda999472db0434ad7b2eaa688ef49fc3633d5c8a859",
+      "bytes": 186281
+    },
+    {
+      "path": "third_party/rats/capx-baseline/skill_libraries/molmospace_formula_play.json",
+      "sha256": "353a03d237f1131b4634710e7d1993e236f5da0a7a4354a85c7b760805df65b6",
+      "bytes": 70823
+    },
+    {
+      "path": "third_party/rats/rats/benchmarks/molmospaces/capx_rats_eval_core_40/benchmark.json",
+      "sha256": "ad5ba8ca096c94beb6dbf62f08528b1c43c5d629cae9fdfa2fa6c86e8d77bbad",
+      "bytes": 728132
+    },
+    {
+      "path": "third_party/rats/rats/benchmarks/molmospaces/capx_rats_eval_core_40/benchmark_metadata.json",
+      "sha256": "49454e4a8cd6cbf9c7cb4d0171b64e6a33ca940dec7d7a60b70cdd4af087142b",
+      "bytes": 2288
+    },
+    {
+      "path": "third_party/rats/rats/benchmarks/molmospaces/capx_rats_play_disjoint_from_eval40/benchmark.json",
+      "sha256": "9ebd4cd04af83752f25fa0ee5b66064f0eea933c88e355c0a7ffeccf4de1a0bb",
+      "bytes": 1362300
+    },
+    {
+      "path": "third_party/rats/rats/benchmarks/molmospaces/capx_rats_play_disjoint_from_eval40/benchmark_metadata.json",
+      "sha256": "fe7842bde7ddc7583aa16be9b8531f40b9705650a95d9829d240c2690e98d693",
+      "bytes": 3486
+    },
+    {
+      "path": "third_party/rats/skill_library/libero_formula_warmup5_iter050.json",
+      "sha256": "42de6bac20f94d53e1d2cda999472db0434ad7b2eaa688ef49fc3633d5c8a859",
+      "bytes": 186281
+    },
+    {
+      "path": "third_party/rats/skill_library/libero_nonpriv_skills.json",
+      "sha256": "b3bbf324e286f48bdcf981dd32adf225305dad05a4fd8be1496900cf57d06bfe",
+      "bytes": 17325
+    },
+    {
+      "path": "third_party/rats/skill_library/libero_skills.json",
+      "sha256": "bd220fe3cf7b889e7b59fc36700de86029cf536cabebe5585c85a82dd645388a",
+      "bytes": 8029
+    },
+    {
+      "path": "third_party/rats/skill_library/molmospaces_formula_play.json",
+      "sha256": "353a03d237f1131b4634710e7d1993e236f5da0a7a4354a85c7b760805df65b6",
+      "bytes": 70823
+    },
+    {
+      "path": "third_party/rats/skill_library/skills.json",
+      "sha256": "d158baa9761612e10afca6242a5b6838ce50016cba908e5a9540276b2af0e257",
+      "bytes": 15110
+    }
+  ]
+}

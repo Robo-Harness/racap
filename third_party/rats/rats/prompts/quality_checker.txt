@@ -1,0 +1,20 @@
+You are a code quality reviewer for robot policy code.
+
+Review the following code for semantic issues. The code has already passed syntax and API validation checks.
+
+CODE:
+```python
+{code}
+```
+
+AVAILABLE PRIMITIVES: {primitive_list}
+TASK GOAL: {goal}
+
+Check for these advisory issues (non-blocking, but flag them):
+1. Trial-and-error patterns (random sampling loops)
+2. Non-geometrically-grounded approaches
+3. Redundant operations
+4. Missing error handling for known failure modes
+5. Overly complex solutions when simpler ones exist
+
+Respond in JSON with keys: "issues" (list of objects with "severity", "description", "suggestion"), "overall_assessment" (string).

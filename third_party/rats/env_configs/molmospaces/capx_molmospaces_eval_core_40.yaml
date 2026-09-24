@@ -1,0 +1,80 @@
+# CaP-X baseline (NO learned skill library) on the eval_core_40 TEST set.
+#
+# This is the no-RATS counterpart to rats_molmospaces_eval_core_40.yaml: the
+# same 40-episode eval subset (10 each open/close/pick/pnp, data_split=test)
+# and the same perception API (FrankaMolmoSpacesApiReducedSkillLibrary —
+# SAM3 + Contact-GraspNet + pyroki + molmo), but with capx_only=true so no
+# learned skills are injected. Multi-turn limit 10 matches the LIBERO CaP-X
+# baseline default.
+#
+# Start the bridge with the same benchmark_dir:
+#   MUJOCO_GL=egl conda run -n mlspaces python scripts/mlspaces_server.py \
+#     --port 9161 \
+#     --task-type open \
+#     --scene-dataset ithor \
+#     --data-split test \
+#     --benchmark-dir rats/benchmarks/molmospaces/capx_rats_eval_core_40 \
+#     --output-dir outputs/capx_molmospaces_eval_core_40/mlspaces_server \
+#     --lazy-init
+#
+# 40-episode CaP-X eval, 10 trials => 400 rollouts:
+#   python -m rats.envs.scripts.run_molmospaces_batch \
+#     --base-config-path env_configs/molmospaces/capx_molmospaces_eval_core_40.yaml \
+#     --total-trials 10 \
+#     --output-dir outputs/capx_molmospaces_eval_core_40 \
+#     --models google/gemini-3.5-flash
+
+env:
+  _target_: rats.envs.tasks.franka.franka_molmospaces_env.FrankaMolmoSpacesCodeEnv
+  cfg:
+    _target_: rats.envs.tasks.base.CodeExecEnvConfig
+    low_level:
+      _target_: rats.envs.simulators.molmospaces.FrankaMolmoSpacesEnv
+      use_real_bridge: false
+      remote_bridge_url: "localhost:9161"
+      task_type: open
+      scene_dataset: ithor
+      data_split: test
+      benchmark_dir: rats/benchmarks/molmospaces/capx_rats_eval_core_40
+      max_steps: 4000
+      enable_render: true
+      max_joint_step_rad: 0.08
+      move_max_steps: 200
+      reset_physical_state: true
+      use_recorded_cameras: true
+      capx_only: true
+    privileged: false
+    apis:
+      - FrankaMolmoSpacesApiReducedSkillLibrary
+    prompt: |
+      You are controlling a Franka robot arm in a deterministic MolmoSpaces benchmark.
+      The benchmark may ask for open, close, pick, or pick-and-place tasks. Read the live task prompt carefully before acting.
+
+      Use perception first, then staged motion. For pick and pick-and-place, localize the target object and receptacle if any, segment carefully, plan a conservative grasp, lift, transport, and release. For open and close, localize the articulated object and handle/edge/seam, approach from a reachable front side, then pull or push conservatively along the likely joint direction.
+
+      You may write python code comments for reasoning but ONLY write executable Python code and do not wrap it in code fences.
+      After this code executes, you will be able to get a new observation of the environment and write new code to complete the task if needed.
+      The functions (APIs) below are already imported to the environment. If you want to use numpy, you need to import it explicitly.
+
+    multi_turn_prompt: |
+      The following code blocks were just executed:
+      ```python
+      {executed_code}
+      ```
+      The current console stdout is:
+      ```
+      {console_stdout}
+      ```
+      The current console stderr is:
+      ```
+      {console_stderr}
+      ```
+      If there were no errors during compilation or execution, the console stderr will be empty. If there were errors, consider regenerating the code.
+      Please respond with EXACTLY ONE of the following:
+      - The word 'REGENERATE' followed immediately by new Python code in a fenced code block (```python...```) if you want to modify the code.
+      - The word 'FINISH' if the task appears to be complete
+
+record_video: true
+trials: 1
+multi_turn_limit: 10
+output_dir: ./outputs/capx_molmospaces_eval_core_40

@@ -1,0 +1,62 @@
+# CaP-Agent0-derived LIBERO object-swap evaluation config.
+# Intended for run_libero_batch:
+#   python -m capx.envs.scripts.run_libero_batch \
+#     --args.base-config-path env_configs/libero/franka_libero_cap_agent0_object_swap_5trials_noensemble_singleturn_video.yaml \
+#     --args.suites libero_object_swap \
+#     --args.models openai/gpt-5.5 \
+#     --args.total-trials 5 \
+#     --args.num-workers 1 \
+#     --args.record-video True \
+#     --args.output-dir outputs/capx_eval_agent0_object_swap_5trials_noensemble_singleturn_video
+
+env:
+  _target_: capx.envs.tasks.franka.franka_libero_env.FrankaLiberoCodeEnv
+  cfg:
+    _target_: capx.envs.tasks.base.CodeExecEnvConfig
+    low_level:
+      _target_: capx.envs.simulators.libero.FrankaLiberoEnv
+      suite_name: libero_object_swap
+      task_id: 0
+      privileged: false
+      max_steps: 8000
+      control_freq: 20
+    privileged: false
+    apis:
+      - FrankaLiberoApiReducedSkillLibrary
+    prompt: |
+      You are controlling a Franka Emika robot with API described below.
+      Goal: {libero_environment_goal}
+      You may write python code comments for reasoning but ONLY write the executable Python code and do not write it in code fences.
+      After this code executes, you will be able to get a new observation of the environment and write new code to complete the task if needed.
+      The functions (APIs) below are already imported to the environment. If you want to use numpy, you need to import it explicitly.
+
+    # Disable multi-turn regeneration for this controlled eval.
+    # Each trial executes only the initial generated program.
+    multi_turn_prompt: null
+
+api_servers:
+  - _target_: capx.serving.launch_pyroki_server.main
+    port: 8116
+    host: 127.0.0.1
+    robot: panda_description
+    target_link: panda_hand
+
+  - _target_: capx.serving.launch_contact_graspnet_server.main
+    port: 8115
+    host: 127.0.0.1
+
+  - _target_: capx.serving.launch_sam3_server.main
+    device: cuda
+    port: 8114
+    host: 127.0.0.1
+
+record_video: true
+output_dir: ./outputs/capx_eval_agent0_object_swap_5trials_noensemble_singleturn_video
+use_img_differencing: true
+use_parallel_ensemble: false
+use_multimodel: false
+evolve_skill_library: true
+skill_library_path: ./outputs/capx_eval_agent0_object_swap_5trials_noensemble_singleturn_video/skills.json
+
+trials: 5
+num_workers: 1

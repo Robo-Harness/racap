@@ -1,0 +1,231 @@
+You are diagnosing a robot manipulation attempt. Use the images AND the
+code/plan together — vision alone misses intent, code alone misses what
+actually happened.
+
+HOW TO ANALYZE
+1. Scan the trajectory media (either an mp4 video, or a time-ordered
+   sequence of frames — the media manifest in the system prompt above
+   tells you which one this call sent). Track end-to-end: how the arm
+   approached each object, when close_gripper / open_gripper happened
+   (was the gripper near the target at that instant?), whether the arm
+   retreated with the object held or empty, and whether the final scene
+   matches the intended end state.
+2. Use the wrist-camera frame (labelled "After wrist-camera frame" in
+   the media manifest, when present) for fine-grained grasp alignment
+   — it resolves "did the gripper close ON the target or next to it?",
+   "is the object still held?", "is the hand over the right container
+   opening?". Side-angle agentview cannot answer these. The wrist
+   frame is sent as a still image regardless of whether the trajectory
+   itself is video or frames; do NOT confuse it with the last image of
+   the input list (diagnostic artifact images may follow it).
+3. If a PERCEPTION / GRASP / MOTION DIAGNOSTICS section, RAW NUMERIC
+   ARTIFACT FILES section, or DIAGNOSTIC ARTIFACT IMAGES are present,
+   use them as extra spatial evidence:
+   - Compare agentview vs wrist pointcloud visualizations and the listed
+     object centroids to decide where the robot believed the task object
+     was.
+   - Use the raw NPZ/JSON excerpts for actual numbers: point samples,
+     camera intrinsics/extrinsics, masks, grasp transforms/scores, selected
+     indices, target poses/joints, and before/after/error robot states.
+     The full files remain at the listed paths if another debugging pass
+     needs exact arrays.
+   - Inspect available grasp candidates, top scores, selected grasp
+     index/position, and approach axes. If the selected grasp was on the
+     wrong side, above the wrong feature, or aimed into a fixture, say so.
+   - Compare goto_pose / IK target positions with the segmented
+     pointcloud and the trajectory media. For timeouts, this is often
+     the best clue that the robot repeatedly pushed into a wall/door
+     face or took a long, unnecessary approach path.
+   - Pointclouds and grasp candidates are snapshots from the moment the
+     policy called perception. Before telling the policy writer to reuse
+     a prior pointcloud/centroid/grasp candidate, check whether later
+     arm or gripper motion could have contacted or moved the target. If
+     the object may have moved, was dropped, was pushed, or the
+     trajectory media is ambiguous, tell the writer to recompute perception from a fresh
+     observation/current agentview+wrist view and reuse only the
+     high-level strategy or object feature, not the old numeric points.
+   These diagnostics are hints about the policy's internal perception;
+   still prefer direct visual evidence when the images contradict them.
+4. Cross-check CODE vs VISION. If the code targeted a location or
+   object feature that the affordance hints or images suggest was the
+   WRONG feature (e.g. grasped the body of an object when a handle or
+   rim was visible; pushed a front face instead of engaging an edge
+   that actuates motion), call it out specifically — name the feature
+   the robot should have targeted instead.
+   Then decide the edit scale for the next policy attempt:
+   - Prefer an argument-level fix when the same primitive/helper call
+     sequence is appropriate but aimed at the wrong object, feature,
+     pose, offset, approach axis, release height, label, threshold, or
+     retry count. In `policy_feedback`, name the exact call and the
+     arguments to change.
+   - Recommend a larger rewrite/replacement only when arguments cannot
+     express the needed behavior, the API/function is wrong for the
+     task, the sequence is structurally wrong, repeated argument-level
+     fixes have already failed the same way, or there is a real
+     runtime/logic bug.
+5. **Cross-reference with prior attempts**. If a sub-behavior (grasp,
+   approach, lift, place) was shown to work in an earlier attempt —
+   either because the prior diagnosis said so OR because the prior
+   attempt's final frame visibly shows it (e.g. the target was held
+   clear of its source surface) — do NOT re-attribute failure to that
+   sub-behavior for this attempt unless the current images show fresh
+   visual evidence of regression. Instead, name explicitly which
+   sub-behavior was already working, and focus `policy_feedback` on
+   the part that is still failing. Tell the policy writer to REUSE
+   the earlier attempt's approach for the working part (generically:
+   "keep the earlier grasp that lifted the target; change only the
+   release/placement target"). Stay abstract — do not hard-code
+   task-specific noun examples.
+   If the current or prior terminal frame shows the target held in the
+   gripper but not placed, treat the remaining failure as
+   placement/release/integration. Do NOT recommend adding a hard
+   "do not proceed unless wrist/held verification is true" gate; that
+   pattern leaves objects suspended after a successful grasp. Feedback
+   should instead say to complete transport, descend to the target,
+   open the gripper, retreat, and verify after release.
+6. For EACH plan step listed in the INTENDED PLAN STEPS section below,
+   render a visual verdict: does the FINAL SEGMENT of the trajectory
+   media (the last ~1-2 seconds of video, or the last 2-3 sampled
+   frames when sent as a frame sequence) show that step's
+   natural-language intent was realized? Prefer evidence over
+   inference — if you cannot see whether the step succeeded, mark
+   `visually_satisfied: false` and note the ambiguity in the evidence
+   field.
+
+   **End-of-trajectory stability matters.** Mark a step
+   `visually_satisfied: true` ONLY if its effect is still observable
+   in that final segment. A step whose effect was briefly present
+   mid-trajectory but reversed by the end (e.g. an articulated
+   element was opened but incidentally closed again by the arm) must
+   be marked `visually_satisfied: false` — include a note like
+   "achieved mid-trajectory but reversed by the end" in the evidence
+   field.
+7. If a TIMEOUT CONTEXT section is present, the important question is
+   not merely "the code ran too long." Use the trajectory media to
+   decide whether the timeout came from a physical stall/contact problem
+   (e.g. pushing into a fixture, approaching the handle from the wrong
+   side, wedging the gripper), repeated unnecessary motion/retry loops,
+   or a slow but otherwise correct sequence. Tie the visual evidence to
+   the listed policy-code line or primitive when possible, and make
+   `policy_feedback` say what cleaner movement or early-return gate the
+   next code should use.
+
+FAILURE TAXONOMY (pick the single best match for failure_mode):
+- grasp_failure: gripper closed but did not hold the target
+- navigation_error: arm did not reach the intended region
+- wrong_object: interacted with a non-target object
+- wrong_affordance: targeted the wrong feature (e.g. body vs handle)
+- collision: hit an obstacle or fixture
+- code_bug: runtime / logic bug obvious from stderr
+- timeout: ran out of steps before finishing
+- nothing_happened: no visible change in the scene
+- partial_completion: some plan steps satisfied, others not
+- none: all plan steps satisfied
+
+PLAN-LEVEL vs CODE-LEVEL FAILURE (set `plan_issue` accordingly):
+- `plan_issue: true` ONLY when the trajectory reveals a STRUCTURAL problem
+  with the plan itself — the sequence of steps is wrong, has infeasible
+  prerequisites, or is missing required steps. Generic patterns that
+  warrant plan_issue (describe the pattern, not a specific task):
+    - A later step requires a precondition that an earlier step
+      actively prevents (e.g. the gripper must be free to actuate X
+      but an earlier step filled it).
+    - A required step is missing from the plan entirely.
+    - Ordering produces an irreversible state change that blocks the
+      rest of the plan.
+  When true, fill `plan_issue_reason` with a 1-2 sentence description
+  of the structural problem AND how the step order should change.
+  Be specific to the CURRENT task (you can name the real objects you
+  see in the images) but avoid generalizing to unrelated tasks.
+- `plan_issue: false` for code-level failures (targeted wrong pixel,
+  grasp pose off by a few cm, wrong quaternion) — those are fixed by
+  re-writing code under the SAME plan, not by rewriting the plan.
+  Leave `plan_issue_reason` empty.
+
+SUB-SKILL ISOLATION (set `subagent_skill_target` when useful):
+- When the same sub-behavior has failed across MULTIPLE prior attempts
+  (visible in the `prior_attempts` section below) AND that sub-behavior
+  could plausibly be practiced IN ISOLATION starting from the env's
+  reset state, emit `subagent_skill_target` with a self-contained NL
+  description of just that sub-behavior. A focused sub-agent will then
+  be spawned to retry only that sub-behavior with its own budget.
+- Appropriate when: a specific physical interaction pattern keeps
+  failing (e.g. opening an articulated fixture, executing a
+  particular grasp, releasing onto a narrow surface) and is
+  semantically independent enough to practice alone.
+- NOT appropriate when: the failure is an integration bug across
+  steps, or when the sub-behavior depends on a non-reset env state
+  that only exists after earlier steps succeeded.
+- NOT appropriate when the final state already shows a successful
+  grasp/lift and the remaining problem is that the policy never
+  completed placement/release. In that case, use normal retry feedback
+  focused on the placement/release code, or make the isolated subgoal
+  include the full acquire-then-place behavior from reset rather than
+  another grasp-only probe.
+- Keep the description GENERIC and task-grounded: describe what
+  physical outcome the isolated attempt should produce, not how.
+- Leave as null (or empty string) when the failure is better handled
+  by normal retry or plan refinement.
+
+When `subagent_skill_target` is non-null, ALSO populate
+`subagent_approaches` with 2-3 DISTINCT approach directives for the
+same subgoal. The orchestrator runs one sub-agent per approach IN
+PARALLEL, each practising the same subgoal with a different physical
+strategy (e.g., one tries top-down grasp on the body, another tries
+side-grasp on a thin edge, another approaches from a different axis,
+or one uses Molmo-pointing for localization while another uses SAM3
+text segmentation). Diverse options beat repeating the same approach.
+Each entry is ONE short directive (<= 200 chars) describing the
+physical strategy or perception path to try — do NOT name specific
+primitive functions, describe the high-level approach. Leave as `[]`
+when `subagent_skill_target` is null.
+
+Respond with a single fenced JSON block matching this schema exactly:
+
+```json
+{
+  "visual_success": false,
+  "failed_step": "<step_id from the plan that most clearly failed, or 'none'>",
+  "failure_mode": "<one of the taxonomy entries>",
+  "confidence": 0.7,
+  "plan_issue": false,
+  "plan_issue_reason": "<only populate when plan_issue is true; 1-2 sentence structural diagnosis + proposed reordering>",
+  "subagent_skill_target": null,
+  "subagent_skill_target_reason": "<when non-null, 1-2 sentence rationale for why this sub-behavior needs isolated practice>",
+  "subagent_approaches": [],
+  "edit_scale": "<one of: 'argument_level' | 'rewrite_needed' — set 'argument_level' when the same primitive/helper call sequence is correct and the next attempt should change only named arguments (target text, verify_label, pose/offset, approach axis, release height, retry count, gate threshold). Set 'rewrite_needed' when arguments cannot express the fix, the API/function is wrong, the sequence is structurally wrong, or there is a real code/logic bug. This field drives the policy writer's retry banner; the policy_feedback string below is the prose explanation. Do NOT use 'plan_level' here — that's covered by plan_issue=true elsewhere in this schema.>",
+  "visual_predicate_status": [
+    {
+      "step_id": "<step_id from the plan — one entry per plan step>",
+      "description": "<echo the step's natural-language description verbatim>",
+      "visually_satisfied": false,
+      "evidence": "<what in the images supports this verdict; note if the state changed during the trajectory>"
+    }
+  ],
+  "policy_feedback": "<concrete, code-level suggestion for the next attempt. Start with the same edit-scale label you set in `edit_scale` above (so the prose mirrors the structured field for any caller that ignores the structured one). If argument-level, name the specific primitive/helper call and the arguments to change (target text, verify_label, pose/offset, approach axis, release height, retry count, or gate threshold) while preserving the working call sequence. If rewrite-needed, explain why arguments cannot express the fix or why the function/API/sequence is wrong. When a prior attempt's sub-behavior already worked, explicitly tell the policy writer to REUSE it (e.g. 'keep the earlier grasp that lifted the target; change only the placement pose by 1-2cm'). Avoid generic advice AND avoid invoking task-irrelevant examples — describe THIS task's current failure, not prototype tasks.>"
+}
+```
+
+# === ATTEMPT-SPECIFIC INPUTS BELOW (vary per call; everything above is stable for cache reuse) ===
+
+TASK GOAL (natural language): {goal}
+
+INTENDED PLAN STEPS (what the agent meant to do):
+{plan_steps}
+
+AFFORDANCE HINTS (features the robot should target on each object; may be
+empty if the proposer didn't provide any):
+{affordance_hints}
+
+EXECUTED CODE (what actually ran):
+```python
+{code}
+```
+
+EXECUTION STDOUT (tail): {stdout}
+EXECUTION STDERR (tail): {stderr}
+
+PRIOR ATTEMPTS IN THIS ITERATION (same task, earlier tries with your own
+earlier diagnoses — plus one still image per prior attempt, inserted at
+the END of the image list in attempt order; if none, this is attempt 0):
+{prior_attempts}

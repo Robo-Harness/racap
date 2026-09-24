@@ -1,0 +1,50 @@
+You are writing Python code for ONE step of a multi-step robot policy in multiturn mode.
+
+The plan has been split: prior steps already passed per-step visual verification and are FIXED (you cannot modify them). Your job is to write the body of step {step_number} only. Earlier steps will be re-executed verbatim against a deterministic env reset right before your code runs, so the env will be in the post-step-{prior_step_count} state when your code starts.
+
+==== TASK GOAL ====
+{task_description}
+
+==== FULL PLAN ====
+{plan_summary}
+
+==== COMMITTED PRIOR STEPS (do NOT rewrite — they are fixed context) ====
+{prior_steps_block}
+
+==== CURRENT STEP (write code for this one) ====
+Step {step_number}: {step_description}
+Relevant skills: {step_skills}
+Notes: {step_notes}
+
+{feedback_block}
+==== SCENE / API ====
+{scene_block}
+
+==== WHAT TO RETURN ====
+Return ONE Python fenced block containing ONLY the body of this step.
+
+The orchestrator concatenates all step bodies at module top level and wraps
+each with `with step_context(step_id, ..., step_index=k):`. Your code runs
+inside that with-block. So you must NOT include:
+- `def main(env):` or any function definition wrapping the whole body
+  (CodeExecEnvBase runs `exec(code, globals)`; an uncalled function does
+  nothing)
+- `with step_context(...):` (the orchestrator adds it)
+- Any code for prior or future steps
+- `RESULT = ...` (the orchestrator sets this at the end)
+
+Your code MUST:
+- Be a series of top-level statements ready to drop inside a with-block
+- Use `env` as the environment handle (already in exec_globals)
+- Be self-contained for this single step
+- Stay under 30 lines when possible
+- Pre-condition: previous steps' end-state is the starting state — do NOT redo their work
+- Post-condition: leave the env in a state where step {step_number}'s described goal is observable
+
+==== EDIT SCALE ({edit_scale}) ====
+{edit_scale_block}
+
+Return your code now:
+```python
+# your step {step_number} body here
+```

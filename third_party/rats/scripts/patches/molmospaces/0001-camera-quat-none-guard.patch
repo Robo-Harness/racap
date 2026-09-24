@@ -1,0 +1,35 @@
+Author: Hanjun Yoo
+Subject: [PATCH] abstract_exp_config: None-guard camera_quaternion in freeze_task_config
+
+A camera without an explicit quaternion (e.g. RandomizedExocentric or a
+MjcfCamera that never had one assigned) leaves `cam.camera_quaternion` as
+None. `list(None)` raises `TypeError: 'NoneType' is not iterable`, so
+freezing an episode with such a camera crashes instead of persisting a
+valid SavedEpisode. Read the attribute once and pass the literal None
+through when it isn't set; otherwise keep the previous coerce-to-list
+behaviour.
+
+Upstream: https://github.com/allenai/molmospaces (pending PR)
+
+---
+ molmo_spaces/configs/abstract_exp_config.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/molmo_spaces/configs/abstract_exp_config.py b/molmo_spaces/configs/abstract_exp_config.py
+--- a/molmo_spaces/configs/abstract_exp_config.py
++++ b/molmo_spaces/configs/abstract_exp_config.py
+@@ -171,12 +171,13 @@ class MlSpacesExpConfig(Config, ABC):
+             # Read the camera's positions and convert them to fixed cameras
+             if isinstance(camera, MjcfCameraConfig | RobotMountedCameraConfig):
+                 cam = task.env.camera_manager.registry[camera.name]
++                quat = cam.camera_quaternion
+                 new_camera = RobotMountedCameraConfig(
+                     name=cam.name,
+                     reference_body_names=list(cam.reference_body_names),
+                     camera_offset=list(cam.camera_offset),
+                     lookat_offset=list(cam.lookat_offset),
+-                    camera_quaternion=list(cam.camera_quaternion),
++                    camera_quaternion=list(quat) if quat is not None else None,
+                     fov=cam.fov,
+                 )
+                 sc.camera_config.cameras[i] = new_camera

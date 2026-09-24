@@ -1,0 +1,122 @@
+# RATS + MolmoSpaces playtime — formula curiosity, focused interaction set.
+
+attempts_per_iteration: 4
+turns_per_attempt: 1
+
+molmospaces:
+  proposer_mode: "playtime"
+  curiosity: true
+  allow_house_switching: false
+  house_switch_max_per_run: 60
+  house_switch_every: 0
+  vlm_grounding:
+    enabled: true
+    cache_per_house: true
+  environment_verifier:
+    enabled: true
+    provider: molmo
+    run_every_iteration: true
+    max_retries: 4
+    fail_open_on_error: true
+    molmo_model: allenai/Molmo2-8B
+    molmo_base_url: http://127.0.0.1:8122/v1
+    benchmark_reinit_on_fail: true
+  per_step_verifier:
+    enabled: false
+  playtime:
+    developmental_stage: sensorimotor
+    freeform_proposal: true
+    verify_with_vlm_only: true
+    memory_path: playtime_memory_molmospaces.jsonl
+    max_recent_memories: 30
+    curiosity_mode: formula
+    scene_first:
+      enabled: true
+      start_offset: 1
+    scene_pool_seed: 42
+    two_stage_target_selection: false
+    allow_freeform_interactions: false
+    allowed_interactions:
+      - pick
+      - pull
+      - lift
+      - place_on
+      - place_in
+      - open
+      - close
+      - stack
+    safe_interaction_rules: >-
+      Use bounded, visible actions. Vary one thing at a time: grasp and
+      lift an object, pull a handle or drawer, open or close a door,
+      place an object on or inside a receptacle, stack one object on
+      another. For articulated objects, target visible handles, lips,
+      seams, or front faces; apply deliberate force along the joint
+      direction. Do not push, slide, slam, yank violently, throw objects,
+      push objects off surfaces, make tall unstable stacks, or use adult
+      goals like cleaning, storing, organizing, or tidying.
+
+env:
+  _target_: rats.envs.tasks.franka.franka_molmospaces_env.FrankaMolmoSpacesCodeEnv
+  cfg:
+    _target_: rats.envs.tasks.base.CodeExecEnvConfig
+    low_level:
+      _target_: rats.envs.simulators.molmospaces.FrankaMolmoSpacesEnv
+      use_real_bridge: false
+      remote_bridge_url: "localhost:9270"
+      task_type: pick_and_place
+      scene_dataset: procthor-objaverse
+      benchmark_dir: rats/benchmarks/molmospaces/capx_rats_play_disjoint_from_eval40
+      max_steps: 4000
+      enable_render: true
+      max_joint_step_rad: 0.08
+      move_max_steps: 200
+      reset_physical_state: true
+      randomize_agentview: false
+      use_recorded_cameras: true
+      require_grasp_files: false
+      pin_pickup_obj_name: true
+      front_facing_robot_placement: true
+      capx_only: false
+    privileged: false
+    apis:
+      - FrankaMolmoSpacesApiReducedSkillLibrary
+    prompt: |
+      You are controlling a Franka robot arm in a MolmoSpaces scene drawn
+      from the play pool (Pick-v2 / PnP-v2 procthor-objaverse + ithor
+      open/close). Each iteration loads a different episode (different
+      house + curated robot pose), so visible inventory and reachable
+      targets vary per iter.
+
+      Goal: {live_task}
+
+      This is a playtime exploration run: the proposer assigns manipulation
+      experiments around visible pickable objects, receptacles, and
+      articulated handles/faces. Verification uses VLM video analysis.
+
+      Recommended implementation pattern:
+      1. call get_observation() from a clear pose
+      2. localize the target/handle/receptacle with point_prompt_molmo(...)
+      3. segment with segment_sam3_point_prompt(...) or segment_sam3_text_prompt(...)
+      4. plan a grasp with plan_grasp(...) or plan_grasp_from_point_clouds(...) for pick/place tasks
+      5. execute a staged movement with at least one goto_pose, then retreat so final frames show the result
+
+      For pull/open tasks, success requires measurable handle/door/drawer
+      motion; resistance-only is an observation/failure, not success.
+
+      Important:
+      - Never wrap the full goto_pose / gripper sequence in try/except pass.
+      - Issue at least one goto_pose per attempt.
+      - If a mask looks wrong, simplify the description and retry before moving.
+      - Use numpy only if you import it explicitly.
+
+      You may write python code comments for reasoning but ONLY write
+      executable Python code and do not wrap it in code fences.
+
+api_servers:
+  - _target_: rats.serving.launch_contact_graspnet_server.main
+    host: 127.0.0.1
+    port: 8115
+    device: cuda
+
+record_video: true
+output_dir: ./outputs/play_molmospaces

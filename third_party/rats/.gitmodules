@@ -1,0 +1,23 @@
+[submodule "rats/third_party/LIBERO-PRO"]
+	path = rats/third_party/LIBERO-PRO
+	url = https://github.com/uynitsuj/LIBERO-PRO.git
+[submodule "rats/third_party/robosuite"]
+	path = rats/third_party/robosuite
+	url = https://github.com/uynitsuj/robosuite
+[submodule "rats/third_party/contact_graspnet_pytorch"]
+	path = rats/third_party/contact_graspnet_pytorch
+	url = https://github.com/uynitsuj/contact_graspnet_pytorch
+[submodule "rats/third_party/libero_dependencies/robosuite"]
+	path = rats/third_party/libero_dependencies/robosuite
+	url = https://github.com/Max-Fu/robosuite
+	branch = maxf/egl_context
+[submodule "rats/third_party/sam3"]
+	path = rats/third_party/sam3
+	url = https://github.com/Max-Fu/sam3.git
+	branch = main
+[submodule "rats/third_party/curobo"]
+	path = rats/third_party/curobo
+	url = https://github.com/NVlabs/curobo.git
+[submodule "rats/third_party/molmospaces"]
+	path = rats/third_party/molmospaces
+	url = https://github.com/allenai/molmospaces.git

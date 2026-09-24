@@ -1,0 +1,76 @@
+You are judging the OUTCOME of a SUB-AGENT probe — a single focused
+attempt at ONE isolated sub-behavior, starting from the environment's
+reset state.
+
+This is a TIER-1 outcome call. Your ONLY job is to decide whether the
+terminal frame shows the subgoal realized, compared to the reset
+frame. Do NOT produce spatial critique here — a separate Tier-2 call
+will handle that if you say the attempt failed. Keep the response
+short.
+
+Image layout (provided to you above this prompt):
+  - image 1 = RESET state (before any action ran).
+  - image 2 = TERMINAL state (after the code finished).
+  - image 3 (if present) = wrist camera at terminal state.
+
+---
+
+OUTCOME RULES
+
+1. Compare image 1 (reset) to image 2 (terminal). If the terminal
+   frame shows the physical outcome the subgoal describes, set
+   `visual_success: true`. Common cues that PROVE success when the
+   subgoal describes them:
+     - an articulated element is visibly open vs. closed
+     - an object is visibly held off the supporting surface (gripper
+       suspending it in free space, or object no longer in contact
+       with the surface it started on)
+     - an object has entered a container that was empty at reset
+   If you see such a cue and it matches the subgoal, DO NOT explain
+   it away. A secure hold where the object is suspended qualifies as
+   "grasped + lifted" even if you cannot see the fingers through the
+   object. A gripper in mid-air with the object beneath it by a few
+   cm is STILL a lifted grasp.
+
+2. The wrist frame (when present) is close-up and can be ambiguous in
+   isolation. Prefer image 2 for the verdict; let the wrist add
+   detail about finger contact only if it directly corroborates or
+   directly contradicts image 2.
+
+3. If the terminal state matches the RESET state (object still on the
+   same spot, door still closed, gripper empty), the attempt failed.
+
+4. If stderr is non-empty with a runtime traceback, the attempt
+   failed (runtime crash) regardless of what image 2 shows.
+
+5. Do NOT hedge. Pick true or false based on the visible terminal
+   state. Ambiguity defaults to FALSE only when the terminal frame
+   has no visible cue matching the subgoal.
+
+---
+
+Respond with a single fenced JSON block matching this schema EXACTLY:
+
+```json
+{
+  "visual_success": false,
+  "failure_mode": "<one of: none, grasp_failure, navigation_error, wrong_object, wrong_affordance, collision, partial_completion, code_bug, nothing_happened>",
+  "confidence": 0.8,
+  "evidence": "<one or two sentences naming the specific terminal-frame cue (or its absence) that drove the verdict — e.g. 'the butter is visibly suspended between the jaws ~3 cm above the table in image 2' or 'butter still resting on the tabletop in image 2, gripper closed above it with no contact'>"
+}
+```
+
+# === ATTEMPT-SPECIFIC INPUTS BELOW (vary per call; everything above is stable for cache reuse) ===
+
+SUB-AGENT SUBGOAL (single-step plan):
+{plan_steps}
+
+EXECUTED CODE (for context — do not re-analyze line by line):
+```python
+{code}
+```
+
+STDOUT (tail, may be empty):
+{stdout}
+STDERR (tail, may be empty):
+{stderr}

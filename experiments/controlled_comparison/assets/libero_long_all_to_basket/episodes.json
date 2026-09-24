@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "task_id": "libero_long_all_to_basket_v1",
+  "source_scene": "libero_10/task_5",
+  "rows": [
+    {
+      "suite": "libero_10",
+      "task_id": 5,
+      "seed": 0,
+      "instruction": "put all seven tabletop objects in the basket",
+      "predicates": [
+        ["In", "alphabet_soup_1", "basket_1_contain_region"],
+        ["In", "cream_cheese_1", "basket_1_contain_region"],
+        ["In", "tomato_sauce_1", "basket_1_contain_region"],
+        ["In", "ketchup_1", "basket_1_contain_region"],
+        ["In", "orange_juice_1", "basket_1_contain_region"],
+        ["In", "milk_1", "basket_1_contain_region"],
+        ["In", "butter_1", "basket_1_contain_region"]
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "put all seven tabletop objects in the basket",
+      "predicates": [
+        ["In", "alphabet_soup_1", "basket_1_contain_region"],
+        ["In", "cream_cheese_1", "basket_1_contain_region"],
+        ["In", "tomato_sauce_1", "basket_1_contain_region"],
+        ["In", "ketchup_1", "basket_1_contain_region"],
+        ["In", "orange_juice_1", "basket_1_contain_region"],
+        ["In", "milk_1", "basket_1_contain_region"],
+        ["In", "butter_1", "basket_1_contain_region"]
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 5,
+      "seed": 2,
+      "instruction": "put all seven tabletop objects in the basket",
+      "predicates": [
+        ["In", "alphabet_soup_1", "basket_1_contain_region"],
+        ["In", "cream_cheese_1", "basket_1_contain_region"],
+        ["In", "tomato_sauce_1", "basket_1_contain_region"],
+        ["In", "ketchup_1", "basket_1_contain_region"],
+        ["In", "orange_juice_1", "basket_1_contain_region"],
+        ["In", "milk_1", "basket_1_contain_region"],
+        ["In", "butter_1", "basket_1_contain_region"]
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 5,
+      "seed": 3,
+      "instruction": "put all seven tabletop objects in the basket",
+      "predicates": [
+        ["In", "alphabet_soup_1", "basket_1_contain_region"],
+        ["In", "cream_cheese_1", "basket_1_contain_region"],
+        ["In", "tomato_sauce_1", "basket_1_contain_region"],
+        ["In", "ketchup_1", "basket_1_contain_region"],
+        ["In", "orange_juice_1", "basket_1_contain_region"],
+        ["In", "milk_1", "basket_1_contain_region"],
+        ["In", "butter_1", "basket_1_contain_region"]
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 5,
+      "seed": 4,
+      "instruction": "put all seven tabletop objects in the basket",
+      "predicates": [
+        ["In", "alphabet_soup_1", "basket_1_contain_region"],
+        ["In", "cream_cheese_1", "basket_1_contain_region"],
+        ["In", "tomato_sauce_1", "basket_1_contain_region"],
+        ["In", "ketchup_1", "basket_1_contain_region"],
+        ["In", "orange_juice_1", "basket_1_contain_region"],
+        ["In", "milk_1", "basket_1_contain_region"],
+        ["In", "butter_1", "basket_1_contain_region"]
+      ]
+    }
+  ]
+}

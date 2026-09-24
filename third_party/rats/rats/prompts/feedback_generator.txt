@@ -1,0 +1,77 @@
+You are analyzing a successful robot task execution to extract reusable skills.
+
+Identify sub-functions or code patterns in the executed code that could be extracted as reusable skills for future tasks.
+
+CRITICAL REQUIREMENTS for each extracted skill:
+1. Must be a `def function_name(param1: T1, param2: T2 = default, ...) -> ReturnType:` WITH PYTHON TYPE HINTS on every parameter and on the return. Use precise types: `str`, `int`, `float`, `bool`, `np.ndarray`, `tuple[float, float, float]`, `dict[str, Any]`, `list[float]`, etc. PARAMETERIZE all object names, positions, and task-specific values — NEVER hardcode object names like "black bowl" or "plate". Use parameters like `object_name: str`, `target_surface: str`.
+2. Must use only the primitive API functions (get_object_pose, sample_grasp_pose, etc.) — no env.* or low_level_env.* calls.
+3. Must be self-contained and callable from other code.
+4. Must be useful beyond just this specific task.
+5. For every parameter whose Python type alone doesn't capture its **shape** (numpy arrays, point clouds, pose vectors, quaternions, lists of arrays), record the shape as a string in the `params` list — e.g. `"(3,)"`, `"(N, 3)"`, `"(4,)"` for quaternions, `"(H, W, 3)"`. Same for the return: declare the shape of any array-valued return fields under `returns.shape`.
+
+EXTRACT AT MOST 2 SKILLS PER CALL. The skill library grows across iterations; one or two well-chosen, generic skills per success compound. Five overlapping skills from one task are worse than two clean ones (they pollute the library and confuse later planners). If the executed code only contains one cleanly separable behavior, extract one. Composite "do-everything" skills (e.g. pick_and_place_and_verify) are usually low-value because future tasks need the pieces, not the whole.
+
+BAD example (hardcoded): `def pick_bowl(): grasp_object(..., "black bowl")`
+GOOD example (parameterized): `def pick_object(object_name): grasp_object(..., object_name)`
+
+DUPLICATION GUARD: if a candidate extraction overlaps significantly with one of the EXISTING LEARNED SKILLS listed below — same primitives, same effect — DO NOT extract it again. The library already has it.
+
+GOOD example (extraction style — for a successful pick-and-place of a porcelain mug onto a plate):
+```json
+{
+  "extracted_skills": [
+    {
+      "name": "top_down_grasp_and_lift",
+      "description": "Top-down approach + close + lift to a transport clearance; works for body-graspable objects.",
+      "code": "def top_down_grasp_and_lift(object_name: str, grasp_z_offset: float = 0.03, lift_height: float = 0.18) -> dict:\n    pos, _ = get_object_pose(object_name)\n    grasp = pos.copy(); grasp[2] += grasp_z_offset\n    lift = grasp.copy(); lift[2] += lift_height\n    quat = (0.0, 0.0, 1.0, 0.0)\n    open_gripper()\n    goto_pose(grasp, quat, z_approach=0.10)\n    close_gripper()\n    goto_pose(lift, quat)\n    return {\"grasp\": grasp.tolist(), \"lift\": lift.tolist()}",
+      "params": [
+        {"name": "object_name", "type": "str", "shape": "", "default": null, "description": "Language label routed through perception (e.g. \"porcelain mug\")."},
+        {"name": "grasp_z_offset", "type": "float", "shape": "", "default": 0.03, "description": "Meters added to object Z to define the grasp height; tune per object body height."},
+        {"name": "lift_height", "type": "float", "shape": "", "default": 0.18, "description": "Meters above the grasp pose to lift to before transport."}
+      ],
+      "returns": {"type": "dict", "shape": "{grasp: (3,), lift: (3,)}", "description": "Cartesian grasp and lift positions in world frame, as Python lists."},
+      "api_primitives_used": ["get_object_pose","open_gripper","goto_pose","close_gripper"],
+      "preconditions": ["target reachable from above","gripper empty"],
+      "effects": ["object grasped and lifted to lift_height above its body origin"],
+      "extraction_rationale": "Every pick-and-place task starts with a top-down grasp-and-lift; this is the most reusable building block in the successful trajectory.",
+      "usage_example": "top_down_grasp_and_lift(\"porcelain mug\", grasp_z_offset=0.04, lift_height=0.18)"
+    }
+  ]
+}
+```
+That's ONE focused, parameterised, generic skill — not three overlapping wrappers around the same primitive sequence. Note that the `def` line has Python type hints AND the `params` list redundantly carries the same info plus `shape` strings for array-valued args — both are required.
+
+Respond in JSON with key "extracted_skills" containing a list of objects (max length 2). Each object has:
+- "name" (string)
+- "description" (string)
+- "code" (string with complete `def` function definition using parameters AND Python type hints on every parameter and the return type)
+- "params" (list of objects, one per parameter, in declaration order). Each object has:
+  - "name" (string)
+  - "type" (string — the Python type hint, verbatim from the `def` line)
+  - "shape" (string — array shape like `"(3,)"`, `"(N, 3)"`, `"(4,)"`, or `""` for scalars and strings)
+  - "default" (the default value as JSON, or null when the parameter is required)
+  - "description" (string, 1 sentence describing what this parameter controls)
+- "returns" (object) — describes the function's return value. Fields:
+  - "type" (string — the Python type hint of the return, verbatim from the `def` line)
+  - "shape" (string — overall shape for tensor returns, or a brief field-shape map like `"{grasp: (3,), lift: (3,)}"` for dict returns; `""` when not array-shaped)
+  - "description" (string, 1 sentence)
+- "api_primitives_used" (list of strings)
+- "preconditions" (list of strings)
+- "effects" (list of strings)
+- "extraction_rationale" (string, 1 sentence) — WHY is this worth promoting to a reusable skill? E.g. "the same close-loop wrist-refine grasp pattern will recur on any small-object pick task." Mention what KIND of future task this serves.
+- "usage_example" (string) — ONE concrete invocation showing how the skill was called in THIS successful run, with the actual argument values that worked. E.g. `top_down_grasp_and_lift("porcelain mug", grasp_z_offset=0.04)`. Include parameter values verbatim from the executed code — future callers see this as "this is what worked once." Do NOT generalize the example by parameterising it back; the point is concreteness.
+
+# === TASK-SPECIFIC INPUTS BELOW (vary per call; everything above is stable for cache reuse) ===
+
+TASK: {task_description}
+GOAL: {goal_conditions}
+
+EXISTING LEARNED SKILLS (skip extractions that duplicate these):
+{existing_skills}
+
+EXECUTED CODE:
+```python
+{code}
+```
+
+EXECUTION RESULT: Success (reward={reward})

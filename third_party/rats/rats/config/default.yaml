@@ -1,0 +1,69 @@
+# RATS default configuration
+llm_model: "openai/gpt-5.5"
+llm_temperature: 0.2
+llm_max_tokens: 65536
+llm_reasoning_effort: "low"
+
+max_retries_per_task: 4
+execution_timeout_seconds: 180
+policy_self_check_max_repairs: 2
+max_code_length_tokens: 5000
+target_iterations: 10
+
+# After PolicyWriter emits code and static quality checks pass, run the
+# candidate once from a reset state before official execution. Runtime crashes
+# are fed back to PolicyWriter for this many self-repair rounds; visual/task
+# failures without stderr still go to the normal verifier/diagnoser loop.
+policy_self_check_max_repairs: 2
+
+# SubAgent: focused sub-skill learner. Higher retries + ensemble than the
+# main loop on purpose — it exists to explore variants the deterministic
+# path didn't discover.
+subagent:
+  max_retries: 3
+  # ensemble_n>1 has not been observed to add structural diversity on
+  # reasoning-model paths (temperature is dropped; the "pick best"
+  # selector collapses variance). Real diversity comes from the
+  # prompt-level directive that inlines prior attempts' code +
+  # primitive sets. Leave at 1 unless intentionally A/B testing.
+  ensemble_n: 1
+
+# Environment
+env_config_dir: "env_configs/r1pro"
+default_scene: null  # auto-discover from catalog
+
+# Skill library
+skill_library_path: "skill_library/skills.json"
+
+# Vision/perception servers (host:port)
+# Quality checker probes these at startup to block primitives whose servers are offline
+servers:
+  sam3:
+    host: "127.0.0.1"
+    port: 8114
+    primitives: ["segment_sam3_text_prompt", "segment_sam3_point_prompt", "get_sam3_mask"]
+  graspgen:
+    host: "127.0.0.1"
+    port: 8115
+    primitives: ["sample_grasp_pose", "plan_grasp", "plan_grasp_from_point_clouds"]
+  molmo:
+    host: "127.0.0.1"
+    port: 8122
+    primitives: ["point_prompt_molmo"]
+  pyroki:
+    host: "127.0.0.1"
+    port: 8116
+    primitives: ["solve_ik"]
+
+# MolmoSpaces-specific knobs (read by the lifelong loop + task proposer).
+molmospaces:
+  playtime:
+    verifier: vlm
+    record_resulting_state: true
+    memory_path: playtime_memory.jsonl
+    max_recent_memories: 20
+    inventory_visibility_gate: false
+
+# Logging
+output_dir: "outputs/rats_lifelong"
+log_level: "INFO"

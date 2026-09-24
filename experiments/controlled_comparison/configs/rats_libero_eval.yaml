@@ -1,0 +1,40 @@
+env:
+  _target_: rats.envs.tasks.franka.franka_libero_env.FrankaLiberoCodeEnv
+  cfg:
+    _target_: rats.envs.tasks.base.CodeExecEnvConfig
+    low_level:
+      _target_: rats.envs.simulators.libero.FrankaLiberoEnv
+      suite_name: libero_90
+      task_id: 0
+      privileged: false
+      max_steps: 8000
+      control_freq: 20
+    privileged: false
+    apis:
+      - FrankaLiberoApiReducedSkillLibrary
+    prompt: |
+      You are controlling a Franka Emika robot with API described below.
+      Goal: {libero_environment_goal}
+      You may write python code comments for reasoning but ONLY write the executable Python code and do not write it in code fences.
+      After this code executes, you will be able to get a new observation of the environment and write new code to complete the task if needed.
+      The functions (APIs) below are already imported to the environment. If you want to use numpy, you need to import it explicitly.
+
+api_servers:
+  - _target_: rats.serving.launch_pyroki_server.main
+    port: 8216
+    host: 127.0.0.1
+    robot: panda_description
+    target_link: panda_hand
+  - _target_: rats.serving.launch_contact_graspnet_server.main
+    port: 8215
+    host: 127.0.0.1
+  - _target_: rats.serving.launch_sam3_server.main
+    device: cuda
+    port: 8214
+    host: 127.0.0.1
+
+record_video: true
+output_dir: ./outputs/controlled_rats
+turns_per_attempt: 5
+attempts_per_iteration: 5
+multi_turn_decision: true

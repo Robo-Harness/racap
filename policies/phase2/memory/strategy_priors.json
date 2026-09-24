@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "policy": "Advisory strategy memory for the runtime agent. Keep tool controls explicit; never force a Policy API dispatch from object names alone. Apply a prior only when current visual evidence matches the stated physical condition.",
+  "priors": [
+    {
+      "names": ["frying pan", "pan", "skillet", "small skillet", "low handled pan"],
+      "class_terms": ["frying", "skillet"],
+      "visual_condition": "A shallow, low-profile rimmed cookware body, often with a handle; the useful gripper contacts are near the side/rim/handle rather than a tall central body.",
+      "strategy": "Before repeating generic rim@top or top_down@top grasps, inspect the visible rim/handle orientation and try an explicitly different acquisition such as pca_axis@low, side-compatible/graspnet, or handle/rim-side grasp arguments. After closing, require verify_grasp or a short lift observation showing the pan follows the gripper before planning transit.",
+      "uncertainty": "Do not apply this to a deep basket/tray destination or to a boxy package merely because the word pan appears. If the current view shows an easy upright body grasp, the agent may override the prior. A failed lift is grasp evidence, not proof that the semantic source was wrong."
+    },
+    {
+      "names": ["moka pot", "moka", "stovetop espresso pot", "espresso pot"],
+      "class_terms": ["moka", "espresso"],
+      "visual_condition": "A handled hollow metal vessel with a narrow body/knob/handle that can be toppled by a high top-down contact.",
+      "strategy": "Prefer a low side/PCA-axis or handle/body-compatible grasp before repeating top/rim closures. If the first contact returns empty_grasp or disturbs the pose, observe and re-localize the changed vessel pose, then require attachment/lift evidence before any placement call.",
+      "uncertainty": "Do not force this prior for ordinary cans, bottles, or boxy objects. Current RGB-D pose, gripper closure, and verify_grasp reports have priority over the prior."
+    },
+    {
+      "names": ["mug", "coffee mug", "coffee cup", "cup", "handled cup"],
+      "class_terms": ["mug", "cup", "coffee"],
+      "visual_condition": "The source is visibly a tall or hollow handled vessel and the destination is a small shallow support such as a plate, saucer, or coaster whose usable footprint is only modestly larger than the vessel's stable base. Confirm both conditions from the current view; a deep receptacle or broad table surface does not match.",
+      "strategy": "Plan for stable base support rather than centroid proximity. If the vessel is upright and its rim/body is reachable, prefer an explicit placement-compatible grasp ladder such as rim@top then top_down@top then graspnet@top, but preserve any currently attachment-verified grasp that is visibly stable. Require verify_grasp or a short lift observation before transit. For the small support, explicitly consider destination='top', centre=true, compensate=true, release_on='rim', and a small place_margin around 0.003 to 0.01 m so the base approaches the support without a high open-loop drop. Inspect the carried vessel before opening: if it is strongly tilted or offset from the support, do not release merely because the EEF is over the support. After release, require visual evidence that the base is supported and the vessel is not lying sideways; XY centroid proximity alone is insufficient.",
+      "uncertainty": "This is advisory, not an object-name dispatcher. Reject it if the current object is low and flat, the destination is a deep container, the rim is occluded, or public evidence shows another grasp/release strategy is already stable. If the vessel is sideways after contact, re-observe and prefer a low side/PCA-compatible re-grasp and fresh placement over planar pushing; do not keep pushing a poorly coupled sideways object. The runtime agent may choose different explicit controls when current RGB-D, attachment, support clearance, or reached-pose evidence contradicts this prior."
+    }
+  ],
+  "routing_priors": [
+    {
+      "instruction_trigger": {
+        "relation_any": ["stack", "on top of"],
+        "hollow_class_any": ["bowl", "cup", "vessel"],
+        "same_class_selector_any": ["front", "middle", "back", "left", "right"]
+      },
+      "visual_condition": "The instruction identifies one hollow vessel and another same-class support by a spatial or ordinal selector. Confirm in the current view that both objects are hollow, have similar rim or footprint size, and leave little centering margin. Also inspect whether the carried vessel can remain level; language match alone is insufficient.",
+      "strategy": "Compare the available tool contracts before acting. The default stack route is unsuitable if its report or known controls imply automatic rim release, zero clearance, or an unlevel carry for two similarly sized hollow vessels. In that matched condition, explicitly consider pickplace as the bounded transport route with the complete relational source and support phrases, destination='top', centre=true, compensate=true, a placement-compatible grasp, and a small place_margin around 0.006 to 0.012 m. Require attachment evidence after lift and inspect the carried vessel before release. If it is tilted or not concentric over the support, regrasp or adjust rather than opening. Use stack instead only when current evidence indicates it can provide a stable level concentric descent or when true nesting is visually intended. After release, verify support height and concentricity rather than accepting EEF target completion.",
+      "uncertainty": "This is an advisory routing comparison, not a forced bowl-to-pickplace mapping. Reject it when the source is solid or flat, the destination is much larger, deep nesting is clearly required, ordinal grounding is uncertain, or the stack tool exposes and demonstrates a stable level guided descent. The runtime agent owns the final API choice, explicit arguments, retries, and stopping."
+    },
+    {
+      "instruction_trigger": {
+        "source_class_any": ["butter", "flat package", "flat packet", "sealed packet", "carton", "small package"],
+        "receptacle_any": ["drawer", "sliding compartment"]
+      },
+      "visual_condition": "The source currently appears as a low, flat, rigid rectangular package resting on a support surface, and the destination is visibly an open bounded drawer or sliding compartment. Confirm the package pose, the intended instance when similar packages are nearby, and a usable interior opening from current RGB-D. Language match alone is insufficient.",
+      "strategy": "Avoid spending the first calls on repeated broad analytic top/edge grasp ladders. When the visible package and free approach match, explicitly try one graspnet acquisition first and require verify_grasp or a short lift observation showing the selected package follows the gripper. If that attempt is empty or disturbs the package, observe once, invalidate the stale spatial lock, and choose one materially different low edge/PCA/scoop grasp with depth adjusted from reached-pose and contact evidence; do not dispatch another equivalent three-grasp ladder without new evidence. After attachment, place through the bounded transport API with destination='container', release_on='inside', centre=true and compensate=true. Preserve a requested front/back relation by estimating free interior clearance and expressing it as a small deliberate nudge rather than reusing a generic rim-derived release. Before opening the gripper, inspect whether the carried footprint is inside the visible opening; after release, verify containment and support. If recovery is needed after a miss, re-localize the currently moved package instead of reusing its original front/back tabletop descriptor.",
+      "uncertainty": "This is advisory strategy ordering, not an unconditional butter or package dispatcher. Reject it when the current source is upright, flexible, edge-on, occluded, tightly cluttered, or already has attachment evidence from another grasp. Reject centered container placement when the opening is not visible or the explicit spatial relation cannot fit with adequate clearance. The runtime agent owns the grasp choice, relation-preserving nudge, retries, and stopping."
+    }
+  ]
+}

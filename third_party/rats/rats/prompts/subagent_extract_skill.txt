@@ -1,0 +1,70 @@
+You are turning a successful robot control script into a named,
+reusable skill function so it can be composed into later tasks.
+
+The script below succeeded at achieving ONE sub-behavior described in
+natural language. Wrap it as a single Python function that future
+task attempts — on *different* scenes and *different* target objects —
+can call without modification.
+
+SUB-BEHAVIOR (natural language): {subgoal}
+
+AVAILABLE PRIMITIVE API (docs for reference; the wrapped function can
+call any of these by name):
+{api_docs}
+
+SUCCESSFUL SCRIPT (wrap this into a function):
+```python
+{code}
+```
+
+Respond with a single JSON object matching this schema EXACTLY:
+
+```json
+{
+  "name": "<snake_case function name — describes the behavior pattern, NOT the specific instance that succeeded>",
+  "description": "<one short sentence in generic manipulation vocabulary>",
+  "code": "<the full `def <name>(...)` definition as a Python string — see requirements below>",
+  "api_primitives_used": ["<primitive-name-1>", "..."],
+  "preconditions": ["<short NL precondition>", "..."],
+  "effects": ["<short NL post-condition>", "..."]
+}
+```
+
+REQUIREMENTS FOR `code`
+- Start with `def <name>(...)` on the first line.
+- The first statement inside the function body MUST be a triple-quoted
+  docstring containing, in this order:
+    1. A one-line summary in generic manipulation vocabulary.
+    2. An `Args:` block describing every parameter.
+    3. A `Preconditions:` block (what must hold before calling).
+    4. An `Effects:` block (what the world looks like after it returns).
+    5. An `Approach:` block — one or two sentences on the strategy
+       the original script used (which primitives, in what order, and
+       any decision points). This is the learning we want preserved.
+- Reuse the successful script's logic verbatim where possible.
+- Parameterize anything that was instance-specific in the script: the
+  natural-language target description, any numeric offsets that clearly
+  belong to a particular object's geometry, any hard-coded mask/text
+  prompts. If there is genuinely nothing to parameterize, a no-argument
+  function is acceptable.
+- Keep the function self-contained. It may only reference the provided
+  primitive API; no module-level state, no globals beyond the API.
+- Do NOT add new branching, retries, or error-handling that were not
+  in the successful script.
+- Do NOT import anything inside the function (imports happen at exec
+  time in the caller's scope).
+
+REQUIREMENTS FOR `name` and `description`
+- The name must describe the behavior pattern at a level future tasks
+  can reuse. Do NOT reference the specific task or scene that produced
+  this script. Do NOT embed brand, instance, or category names that
+  happened to appear in the source run (e.g. any specific noun from
+  the subgoal line above).
+- The description should read naturally alongside existing library
+  skills — treat it as the tooltip a planner will see.
+
+REQUIREMENTS FOR `preconditions` / `effects`
+- Each entry is a short natural-language clause, not a code expression.
+- State them in terms of abstract affordances (graspable target in
+  view, gripper empty, articulated element reachable, container surface
+  clear, etc.), not specific object identities.

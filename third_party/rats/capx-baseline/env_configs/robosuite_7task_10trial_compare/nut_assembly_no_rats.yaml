@@ -1,0 +1,30 @@
+env:
+  _target_: capx.envs.tasks.franka.franka_nut_assembly.FrankaNutAssemblyCodeEnv
+  cfg:
+    _target_: capx.envs.tasks.base.CodeExecEnvConfig
+    low_level: franka_robosuite_nut_assembly_low_level_visual
+    privileged: true
+    apis:
+    - FrankaControlApiReducedSkillLibrary
+    prompt: "You are controlling a Franka Emika robot with API described below.\nGoal: grasp and insert the `brown square nut` onto the `brown square block`.\nNote that you would grasp the nut by its handle. You can try language query `extruded handle of the brown square nut` to get a good grasp at the handle.\nThe brown square nut and the extruded handle of the brown square nut are part of the same rigid body.\nThe grasp pose query for 'extruded handle of the brown square nut' returns an end-effector pose expressed in world frame, located on the handle region.\nThe nut's object center pose obtained via 'white hollow center of the brown square nut' and the handle grasp pose obtained via 'extruded handle of the brown square nut' have a fixed rigid transform, which must be applied correctly when inserting the nut onto the peg.\nYou may write python code comments for reasoning but ONLY write the executable Python code and do not write it in code fences.\nThe functions (APIs) below are already\
+      \ imported to the environment. \nIf you want to use numpy, or scipy for spatial transformations, you need to import it explicitly.\n"
+    multi_turn_prompt: null
+api_servers:
+- _target_: capx.serving.launch_pyroki_server.main
+  port: 8116
+  host: 127.0.0.1
+  robot: panda_description
+  target_link: panda_hand
+- _target_: capx.serving.launch_contact_graspnet_server.main
+  port: 8115
+  host: 127.0.0.1
+- _target_: capx.serving.launch_sam3_server.main
+  device: cuda
+  port: 8114
+  host: 127.0.0.1
+record_video: true
+use_img_differencing: true
+save_multiturn_prompts: true
+output_dir: ./outputs/capx_robosuite_7task_10trial_no_rats/nut_assembly
+trials: 5
+num_workers: 1

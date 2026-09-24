@@ -1,0 +1,50 @@
+include LICENSE README.md README_zh-CN.md SECURITY.md CONTRIBUTING.md THIRD_PARTY_NOTICES.md .gitignore memory.md
+include RELEASE_MANIFEST.md
+include assets/framework.png assets/main-results.png assets/libero-pro.png
+recursive-include racap *.py
+recursive-include evolution *.py *.md
+recursive-include policies *.py *.md *.json
+recursive-include policies .gitignore
+recursive-include memories *.md
+recursive-include scripts *.py *.sh
+recursive-include configs *.sh *.example *.json
+recursive-include experiments *.py *.md *.csv *.yaml *.json *.bddl *.patch
+recursive-include docs *.md
+recursive-include tests *.py
+recursive-include third_party *.py *.md *.toml *.lock *.yaml *.yml *.txt *.json *.sh *.patch LICENSE NOTICE .gitignore .gitmodules .rayignore
+prune .git
+prune .venv
+prune .cache
+prune .runtime
+prune outputs
+prune data
+prune datasets
+prune models
+prune checkpoints
+prune build
+prune dist
+prune third_party/rats/.venv
+prune third_party/rats/rats/third_party/LIBERO-PRO
+prune third_party/rats/rats/third_party/contact_graspnet_pytorch
+prune third_party/rats/rats/third_party/curobo
+prune third_party/rats/rats/third_party/libero_dependencies
+prune third_party/rats/rats/third_party/molmospaces
+prune third_party/rats/rats/third_party/robosuite
+prune third_party/rats/rats/third_party/sam3
+prune third_party/robosuite
+prune third_party/robosuite_pinned
+exclude configs/local.env
+global-exclude .openrouterkey .vapikey
+exclude experiments/controlled_comparison/assets/libero_long_all_to_basket/init_files/libero_long_all_to_basket/LIVING_ROOM_SCENE2_put_all_tabletop_objects_in_the_basket.pruned_init
+exclude third_party/rats/capx-baseline/skill_libraries/libero_iter050.json
+exclude third_party/rats/capx-baseline/skill_libraries/molmospace_formula_play.json
+exclude third_party/rats/rats/benchmarks/molmospaces/capx_rats_eval_core_40/benchmark.json
+exclude third_party/rats/rats/benchmarks/molmospaces/capx_rats_eval_core_40/benchmark_metadata.json
+exclude third_party/rats/rats/benchmarks/molmospaces/capx_rats_play_disjoint_from_eval40/benchmark.json
+exclude third_party/rats/rats/benchmarks/molmospaces/capx_rats_play_disjoint_from_eval40/benchmark_metadata.json
+exclude third_party/rats/skill_library/libero_formula_warmup5_iter050.json
+exclude third_party/rats/skill_library/libero_nonpriv_skills.json
+exclude third_party/rats/skill_library/libero_skills.json
+exclude third_party/rats/skill_library/molmospaces_formula_play.json
+exclude third_party/rats/skill_library/skills.json
+global-exclude *.pyc *.pyo *.jsonl *.safetensors *.pt *.pth *.ckpt *.pruned_init *.mp4 *.webm *.pem *.key

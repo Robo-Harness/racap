@@ -1,0 +1,20 @@
+schema_version: 1
+currency: USD
+unit: per_1m_tokens
+source: https://developers.openai.com/api/docs/models/gpt-5.5
+model: gpt-5.5
+service_tier_assumption: standard
+short_context:
+  input: 5.00
+  cached_input: 0.50
+  output: 30.00
+long_context_threshold_input_tokens: 272000
+long_context_multiplier:
+  input: 2.0
+  cached_input: 2.0
+  output: 1.5
+qualification: >-
+  Fixed cost-estimation coefficients for the reported experiments, not current billing rates.
+  This is an OpenAI standard-list-price estimate reconstructed from the raw
+  per-request token ledger. VAPI does not return a billed USD amount or relay
+  markup, so this column must not be described as the actual account charge.

@@ -1,0 +1,123 @@
+# RATS + MolmoSpaces 40-episode EVAL benchmark
+#
+# Held-out eval subset of capx_rats_all_combined_core_200_benchmark:
+#   10 each of close / open / pick / pick_and_place (40 episodes total),
+#   sampled with random.Random(42).shuffle() then [:10] per task_type.
+#   5 trials each (--total-trials 5) => 200 rollouts. data_split = test.
+#   See rats/benchmarks/molmospaces/capx_rats_eval_core_40/README.md.
+#
+# Uses FrankaMolmoSpacesApiReducedSkillLibrary (perception-based: SAM3 +
+# contact_graspnet + pyroki + molmo), the same API the running rats/play
+# sweeps use. No separate grasp server is needed.
+#
+# Start the MolmoSpaces server:
+#   MUJOCO_GL=egl conda run -n mlspaces python scripts/mlspaces_server.py \
+#     --port 9162 \
+#     --task-type open \
+#     --scene-dataset ithor \
+#     --data-split test \
+#     --benchmark-dir rats/benchmarks/molmospaces/capx_rats_eval_core_40 \
+#     --use-recorded-cameras \
+#     --output-dir outputs/rats_molmospaces_eval_core_40/mlspaces_server \
+#     --lazy-init
+#
+# Vision servers (sam3 8114, contact_graspnet 8115, pyroki 8116, molmo 8122)
+# must be up first — see CLAUDE.md PREFLIGHT.
+#
+# Run all 40 benchmark episodes in benchmark.json order:
+#   python scripts/run_rats.py \
+#     --config env_configs/molmospaces/rats_molmospaces_eval_core_40.yaml \
+#     --env-type molmospaces \
+#     --explore \
+#     --iterations 40 \
+#     --model google/gemini-3.5-flash \
+#     --log-agent-io \
+#     --output-dir outputs/rats_molmospaces_eval_core_40
+#
+# Resume/skip completed iteration_*.json files in the same output dir:
+#   ... add --skip-completed
+
+attempts_per_iteration: 2
+turns_per_attempt: 1   # single-turn (multi-turn disabled)
+
+rats:
+  output_dir: ./outputs/rats_molmospaces_eval_core_40
+  # Frozen learned library from formula-play with skill injection: the 13
+  # MolmoSpaces primitives + 27 skills distilled during play. This is the
+  # committed, self-contained snapshot of the playtime runs the eval reuses,
+  # so the command below reproduces from a fresh clone with no outputs/ dir.
+  skill_library: skill_library/molmospaces_formula_play.json
+  # Optional local enrichment from the original play runs (failure lessons +
+  # affordance memory). These live under the gitignored outputs/ tree; they
+  # degrade gracefully to empty when absent and are not required for the eval.
+  failure_memory_path: outputs/rats_playtime_v3/failure_memory
+  playtime_memory_seed: outputs/rats_playtime_v3/playtime_memory.jsonl
+
+molmospaces:
+  proposer_mode: benchmark_order
+  allow_house_switching: false
+  house_switch_max_per_run: 0
+  house_switch_every: 0
+  vlm_grounding:
+    enabled: false
+  environment_verifier:
+    enabled: true
+    provider: molmo
+    run_every_iteration: true
+    max_retries: 4
+    fail_open_on_error: true
+    molmo_model: allenai/Molmo2-8B
+    molmo_base_url: http://127.0.0.1:8122/v1
+    benchmark_reinit_on_fail: true
+  playtime:
+    memory_path: playtime_memory_eval_core_40.jsonl
+
+env:
+  _target_: rats.envs.tasks.franka.franka_molmospaces_env.FrankaMolmoSpacesCodeEnv
+  cfg:
+    _target_: rats.envs.tasks.base.CodeExecEnvConfig
+    low_level:
+      _target_: rats.envs.simulators.molmospaces.FrankaMolmoSpacesEnv
+      use_real_bridge: false
+      remote_bridge_url: "localhost:9162"
+      task_type: open
+      scene_dataset: ithor
+      data_split: test
+      benchmark_dir: rats/benchmarks/molmospaces/capx_rats_eval_core_40
+      max_steps: 4000
+      enable_render: true
+      max_joint_step_rad: 0.08
+      move_max_steps: 200
+      reset_physical_state: true
+      use_recorded_cameras: true
+      capx_only: false
+    privileged: false
+    apis:
+      - FrankaMolmoSpacesApiReducedSkillLibrary
+    prompt: |
+      You are controlling a Franka robot arm in a deterministic MolmoSpaces benchmark.
+      Goal: {live_task}
+
+      This benchmark mixes Open-v1, Close-v1, Pick-v2-classic, and PnP-v2 episodes. Use the RATS pipeline: retrieve learned skills, playtime affordance memory, and failure-memory lessons when available; then write executable Python using the MolmoSpaces skill-library API.
+
+      Use deterministic perception and staged motion:
+      1. call get_observation() from a clear pose
+      2. localize the target object, receptacle, articulated object, handle, edge, seam, or door panel with point_prompt_molmo(...)
+      3. segment with segment_sam3_point_prompt(...) or segment_sam3_text_prompt(...)
+      4. plan a grasp using plan_grasp(...) for pick/pnp tasks, or choose a conservative contact pose for open/close
+      5. execute conservative staged motion and verify task completion
+
+      For pick tasks, grasp the target object, lift, and leave final frames showing it is held or moved as requested.
+      For pick-and-place tasks, identify both target and receptacle, transport above the receptacle, lower, release, and retreat.
+      For open/close tasks, approach from the reachable front side, target a handle/edge/seam/door panel, and pull/push along the likely joint direction.
+
+      Important:
+      - Never wrap the full goto_pose / gripper sequence in try/except pass.
+      - Issue at least one goto_pose per attempt.
+      - If a mask looks wrong, simplify the description and retry before moving.
+      - Use numpy only if you import it explicitly.
+
+      You may write python code comments for reasoning but ONLY write executable Python code and do not wrap it in code fences.
+
+record_video: true
+output_dir: ./outputs/rats_molmospaces_eval_core_40

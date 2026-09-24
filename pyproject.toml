@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "racap"
+dynamic = ["version"]
+license = {file = "LICENSE"}
+description = "Agentic reasoning, acting, and coding as policies for evolvable robot learning"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "numpy>=1.26,<2",
+  "pillow>=10",
+  "requests>=2.31",
+  "imageio>=2.34",
+  "imageio-ffmpeg>=0.5",
+  "opencv-python-headless>=4.8,<4.12",
+]
+
+[project.scripts]
+racap-evolve = "evolution.harness.cli:main"
+
+[project.urls]
+Repository = "https://github.com/Robo-Harness/racap"
+Documentation = "https://github.com/Robo-Harness/racap/tree/main/docs"
+Issues = "https://github.com/Robo-Harness/racap/issues"
+
+[project.optional-dependencies]
+analysis = ["pandas>=2,<3", "matplotlib>=3.8", "scipy>=1.11", "pyyaml>=6", "openpyxl>=3.1", "xlsxwriter>=3.1"]
+dev = ["pytest>=8", "ruff>=0.6", "pandas>=2,<3", "matplotlib>=3.8", "scipy>=1.11", "pyyaml>=6", "openpyxl>=3.1", "xlsxwriter>=3.1", "viser>=0.2"]
+
+[tool.setuptools.dynamic]
+version = {attr = "racap._build.VERSION"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["racap*", "evolution", "evolution.harness*", "evolution.prompts*", "policies*"]
+
+[tool.setuptools.package-data]
+evolution = [
+  "prompts/*.md",
+  "prompts/stages/*.md",
+]
+policies = [
+  "phase1/*.md",
+  "phase1/memory/*.md",
+  "phase1/memory/*.json",
+  "phase1/solution/*.py",
+  "phase1/tests/*.py",
+  "phase2/*.md",
+  "phase2/memory/*.md",
+  "phase2/memory/*.json",
+  "phase2/solution/*.py",
+  "phase2/tests/*.py",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q -p no:cacheprovider"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

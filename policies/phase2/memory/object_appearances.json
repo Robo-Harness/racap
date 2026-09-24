@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "policy": "Advisory visual identity only. Keep the canonical detector query; never force a tool or control value.",
+  "objects": [
+    {
+      "names": ["ketchup"],
+      "appearance": "Tall orange-red squeeze bottle with a narrow grey cap and a light front label; not either cylindrical metal can."
+    },
+    {
+      "names": ["cream cheese", "cream cheese box"],
+      "appearance": "Low, flat blue-and-white rectangular package; not the smaller upright red-orange carton."
+    },
+    {
+      "names": ["butter"],
+      "appearance": "Small upright red-orange rectangular carton; not the flat blue-and-white cream-cheese package."
+    },
+    {
+      "names": ["alphabet soup", "soup"],
+      "appearance": "Blue-and-yellow cylindrical metal can; distinguish it from the red-and-green sauce can."
+    },
+    {
+      "names": ["tomato sauce", "sauce"],
+      "appearance": "Red-and-green cylindrical metal can; distinguish it from the blue-and-yellow soup can and the ketchup squeeze bottle."
+    }
+  ]
+}

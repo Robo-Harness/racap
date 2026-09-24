@@ -1,0 +1,6448 @@
+{
+  "schema_version": 2,
+  "protocol_id": "racap_controlled",
+  "episodes": 413,
+  "sha256": "695500dc79ce7f7f4e3565146ac8a547edc9a018924778125abd50fca49be00f",
+  "rows": [
+    {
+      "suite": "libero_90",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "close the top drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Close",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 1,
+      "seed": 0,
+      "instruction": "close the top drawer of the cabinet and put the black bowl on top of it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Close",
+          "wooden_cabinet_1_top_region"
+        ],
+        [
+          "On",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 2,
+      "seed": 0,
+      "instruction": "put the black bowl in the top drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 3,
+      "seed": 0,
+      "instruction": "put the butter at the back in the top drawer of the cabinet and close it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "butter_2",
+          "wooden_cabinet_1_top_region"
+        ],
+        [
+          "Close",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 4,
+      "seed": 0,
+      "instruction": "put the butter at the front in the top drawer of the cabinet and close it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "butter_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        [
+          "Close",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 5,
+      "seed": 0,
+      "instruction": "put the chocolate pudding in the top drawer of the cabinet and close it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "chocolate_pudding_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        [
+          "Close",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 6,
+      "seed": 0,
+      "instruction": "open the bottom drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 7,
+      "seed": 0,
+      "instruction": "open the top drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 8,
+      "seed": 0,
+      "instruction": "open the top drawer of the cabinet and put the bowl in it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_top_region"
+        ],
+        [
+          "In",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 9,
+      "seed": 0,
+      "instruction": "put the black bowl on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 10,
+      "seed": 0,
+      "instruction": "put the black bowl on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 11,
+      "seed": 0,
+      "instruction": "open the top drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 12,
+      "seed": 0,
+      "instruction": "put the black bowl at the back on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_3",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 13,
+      "seed": 0,
+      "instruction": "put the black bowl at the front on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 14,
+      "seed": 0,
+      "instruction": "put the middle black bowl on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 15,
+      "seed": 0,
+      "instruction": "put the middle black bowl on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 16,
+      "seed": 0,
+      "instruction": "stack the black bowl at the front on the black bowl in the middle",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "akita_black_bowl_2"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 17,
+      "seed": 0,
+      "instruction": "stack the middle black bowl on the back black bowl",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "akita_black_bowl_3"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 18,
+      "seed": 0,
+      "instruction": "put the frying pan on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "chefmate_8_frypan_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 19,
+      "seed": 0,
+      "instruction": "put the moka pot on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 20,
+      "seed": 0,
+      "instruction": "turn on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 21,
+      "seed": 0,
+      "instruction": "turn on the stove and put the frying pan on it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ],
+        [
+          "On",
+          "chefmate_8_frypan_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 22,
+      "seed": 0,
+      "instruction": "close the bottom drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Close",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 23,
+      "seed": 0,
+      "instruction": "close the bottom drawer of the cabinet and open the top drawer",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Close",
+          "white_cabinet_1_bottom_region"
+        ],
+        [
+          "Open",
+          "white_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 24,
+      "seed": 0,
+      "instruction": "put the black bowl in the bottom drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "akita_black_bowl_1",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 25,
+      "seed": 0,
+      "instruction": "put the black bowl on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "white_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 26,
+      "seed": 0,
+      "instruction": "put the wine bottle in the bottom drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "wine_bottle_1",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 27,
+      "seed": 0,
+      "instruction": "put the wine bottle on the wine rack",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 28,
+      "seed": 0,
+      "instruction": "close the top drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Close",
+          "white_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 29,
+      "seed": 0,
+      "instruction": "put the black bowl in the top drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "akita_black_bowl_1",
+          "white_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 30,
+      "seed": 0,
+      "instruction": "put the black bowl on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 31,
+      "seed": 0,
+      "instruction": "put the black bowl on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "white_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 32,
+      "seed": 0,
+      "instruction": "put the ketchup in the top drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "ketchup_1",
+          "white_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 33,
+      "seed": 0,
+      "instruction": "close the microwave",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Close",
+          "microwave_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 34,
+      "seed": 0,
+      "instruction": "put the yellow and white mug to the front of the white mug",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "white_yellow_mug_1",
+          "kitchen_table_porcelain_mug_front_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 35,
+      "seed": 0,
+      "instruction": "open the microwave",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Open",
+          "microwave_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 36,
+      "seed": 0,
+      "instruction": "put the white bowl on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "white_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 37,
+      "seed": 0,
+      "instruction": "put the white bowl to the right of the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "white_bowl_1",
+          "kitchen_table_plate_right_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 38,
+      "seed": 0,
+      "instruction": "put the right moka pot on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "Turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 39,
+      "seed": 0,
+      "instruction": "turn off the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnoff",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 40,
+      "seed": 0,
+      "instruction": "put the frying pan on the cabinet shelf",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "chefmate_8_frypan_1",
+          "wooden_two_layer_shelf_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 41,
+      "seed": 0,
+      "instruction": "put the frying pan on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "chefmate_8_frypan_1",
+          "wooden_two_layer_shelf_1_top_side"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 42,
+      "seed": 0,
+      "instruction": "put the frying pan under the cabinet shelf",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "chefmate_8_frypan_1",
+          "wooden_two_layer_shelf_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 43,
+      "seed": 0,
+      "instruction": "put the white bowl on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "white_bowl_1",
+          "wooden_two_layer_shelf_1_top_side"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 44,
+      "seed": 0,
+      "instruction": "turn on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 45,
+      "seed": 0,
+      "instruction": "turn on the stove and put the frying pan on it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ],
+        [
+          "On",
+          "chefmate_8_frypan_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 46,
+      "seed": 0,
+      "instruction": "pick up the alphabet soup and put it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 47,
+      "seed": 0,
+      "instruction": "pick up the cream cheese box and put it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 48,
+      "seed": 0,
+      "instruction": "pick up the ketchup and put it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 49,
+      "seed": 0,
+      "instruction": "pick up the tomato sauce and put it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 50,
+      "seed": 0,
+      "instruction": "pick up the alphabet soup and put it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 51,
+      "seed": 0,
+      "instruction": "pick up the butter and put it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 52,
+      "seed": 0,
+      "instruction": "pick up the milk and put it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 53,
+      "seed": 0,
+      "instruction": "pick up the orange juice and put it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 54,
+      "seed": 0,
+      "instruction": "pick up the tomato sauce and put it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 55,
+      "seed": 0,
+      "instruction": "pick up the alphabet soup and put it in the tray",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "wooden_tray_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 56,
+      "seed": 0,
+      "instruction": "pick up the butter and put it in the tray",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "butter_1",
+          "wooden_tray_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 57,
+      "seed": 0,
+      "instruction": "pick up the cream cheese and put it in the tray",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "wooden_tray_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 58,
+      "seed": 0,
+      "instruction": "pick up the ketchup and put it in the tray",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "ketchup_1",
+          "wooden_tray_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 59,
+      "seed": 0,
+      "instruction": "pick up the tomato sauce and put it in the tray",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "tomato_sauce_1",
+          "wooden_tray_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 60,
+      "seed": 0,
+      "instruction": "pick up the black bowl on the left and put it in the tray",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "akita_black_bowl_1",
+          "wooden_tray_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 61,
+      "seed": 0,
+      "instruction": "pick up the chocolate pudding and put it in the tray",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "chocolate_pudding_1",
+          "wooden_tray_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 62,
+      "seed": 0,
+      "instruction": "pick up the salad dressing and put it in the tray",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "new_salad_dressing_1",
+          "wooden_tray_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 63,
+      "seed": 0,
+      "instruction": "stack the left bowl on the right bowl and place them in the tray",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "akita_black_bowl_2"
+        ],
+        [
+          "In",
+          "akita_black_bowl_2",
+          "wooden_tray_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 64,
+      "seed": 0,
+      "instruction": "stack the right bowl on the left bowl and place them in the tray",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "akita_black_bowl_1"
+        ],
+        [
+          "In",
+          "akita_black_bowl_1",
+          "wooden_tray_1_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 65,
+      "seed": 0,
+      "instruction": "put the red mug on the left plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "red_coffee_mug_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 66,
+      "seed": 0,
+      "instruction": "put the red mug on the right plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "red_coffee_mug_1",
+          "plate_2"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 67,
+      "seed": 0,
+      "instruction": "put the white mug on the left plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "porcelain_mug_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 68,
+      "seed": 0,
+      "instruction": "put the yellow and white mug on the right plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 69,
+      "seed": 0,
+      "instruction": "put the chocolate pudding to the left of the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "chocolate_pudding_1",
+          "living_room_table_plate_left_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 70,
+      "seed": 0,
+      "instruction": "put the chocolate pudding to the right of the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "chocolate_pudding_1",
+          "living_room_table_plate_right_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 71,
+      "seed": 0,
+      "instruction": "put the red mug on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "red_coffee_mug_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 72,
+      "seed": 0,
+      "instruction": "put the white mug on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "porcelain_mug_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 73,
+      "seed": 0,
+      "instruction": "pick up the book and place it in the front compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_front_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 74,
+      "seed": 0,
+      "instruction": "pick up the book and place it in the left compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_left_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 75,
+      "seed": 0,
+      "instruction": "pick up the book and place it in the right compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_right_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 76,
+      "seed": 0,
+      "instruction": "pick up the yellow and white mug and place it to the right of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "white_yellow_mug_1",
+          "study_table_desk_caddy_right_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 77,
+      "seed": 0,
+      "instruction": "pick up the book and place it in the back compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 78,
+      "seed": 0,
+      "instruction": "pick up the book and place it in the front compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_front_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 79,
+      "seed": 0,
+      "instruction": "pick up the book and place it in the left compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_left_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 80,
+      "seed": 0,
+      "instruction": "pick up the book and place it in the right compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_right_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 81,
+      "seed": 0,
+      "instruction": "pick up the book and place it in the front compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_front_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 82,
+      "seed": 0,
+      "instruction": "pick up the book and place it in the left compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_left_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 83,
+      "seed": 0,
+      "instruction": "pick up the book and place it in the right compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_right_contain_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 84,
+      "seed": 0,
+      "instruction": "pick up the red mug and place it to the right of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "red_coffee_mug_1",
+          "study_table_desk_caddy_right_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 85,
+      "seed": 0,
+      "instruction": "pick up the white mug and place it to the right of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "porcelain_mug_1",
+          "study_table_desk_caddy_right_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 86,
+      "seed": 0,
+      "instruction": "pick up the book in the middle and place it on the cabinet shelf",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "wooden_two_layer_shelf_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 87,
+      "seed": 0,
+      "instruction": "pick up the book on the left and place it on top of the shelf",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "yellow_book_2",
+          "wooden_two_layer_shelf_1_top_side"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 88,
+      "seed": 0,
+      "instruction": "pick up the book on the right and place it on the cabinet shelf",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "yellow_book_1",
+          "wooden_two_layer_shelf_1_top_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_90",
+      "task_id": 89,
+      "seed": 0,
+      "instruction": "pick up the book on the right and place it under the cabinet shelf",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "yellow_book_1",
+          "wooden_two_layer_shelf_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero90_id_replay"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 0,
+      "seed": 1,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 0,
+      "seed": 2,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 1,
+      "seed": 0,
+      "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 1,
+      "seed": 1,
+      "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 1,
+      "seed": 2,
+      "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 2,
+      "seed": 0,
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 2,
+      "seed": 1,
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 2,
+      "seed": 2,
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 3,
+      "seed": 0,
+      "instruction": "pick up the black bowl on the cookie box and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 3,
+      "seed": 1,
+      "instruction": "pick up the black bowl on the cookie box and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 3,
+      "seed": 2,
+      "instruction": "pick up the black bowl on the cookie box and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 4,
+      "seed": 0,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 4,
+      "seed": 1,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 4,
+      "seed": 2,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 5,
+      "seed": 0,
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 5,
+      "seed": 2,
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 6,
+      "seed": 0,
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 6,
+      "seed": 1,
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 6,
+      "seed": 2,
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 7,
+      "seed": 0,
+      "instruction": "pick up the black bowl on the stove and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 7,
+      "seed": 1,
+      "instruction": "pick up the black bowl on the stove and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 7,
+      "seed": 2,
+      "instruction": "pick up the black bowl on the stove and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 8,
+      "seed": 0,
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 8,
+      "seed": 1,
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 8,
+      "seed": 2,
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 9,
+      "seed": 0,
+      "instruction": "pick up the black bowl on the wooden cabinet and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 9,
+      "seed": 1,
+      "instruction": "pick up the black bowl on the wooden cabinet and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 9,
+      "seed": 2,
+      "instruction": "pick up the black bowl on the wooden cabinet and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "Pick the akita black bowl not between the plate and the ramekin and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 0,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl not between the plate and the ramekin and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 0,
+      "seed": 2,
+      "instruction": "Pick the akita black bowl not between the plate and the ramekin and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 1,
+      "seed": 0,
+      "instruction": "Pick the akita black bowl next to the cookie box and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 1,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl next to the cookie box and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 1,
+      "seed": 2,
+      "instruction": "Pick the akita black bowl next to the cookie box and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 2,
+      "seed": 0,
+      "instruction": "Pick the akita black bowl next to the plate and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 2,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl next to the plate and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 2,
+      "seed": 2,
+      "instruction": "Pick the akita black bowl next to the plate and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 3,
+      "seed": 0,
+      "instruction": "Pick the akita black bowl on the top of the cabinet and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 3,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl on the top of the cabinet and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 3,
+      "seed": 2,
+      "instruction": "Pick the akita black bowl on the top of the cabinet and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 4,
+      "seed": 0,
+      "instruction": "Pick the akita black bowl on the top of the wooden cabinet and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 4,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl on the top of the wooden cabinet and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 4,
+      "seed": 2,
+      "instruction": "Pick the akita black bowl on the top of the wooden cabinet and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 5,
+      "seed": 0,
+      "instruction": "Pick the akita black bowl on the cookie box and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl on the cookie box and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 5,
+      "seed": 2,
+      "instruction": "Pick the akita black bowl on the cookie box and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 6,
+      "seed": 0,
+      "instruction": "Pick the akita black bowl on the stove and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 6,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl on the stove and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 6,
+      "seed": 2,
+      "instruction": "Pick the akita black bowl on the stove and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 7,
+      "seed": 0,
+      "instruction": "Pick the akita black bowl on the top of the cabinet and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 7,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl on the top of the cabinet and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 7,
+      "seed": 2,
+      "instruction": "Pick the akita black bowl on the top of the cabinet and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 8,
+      "seed": 0,
+      "instruction": "Pick the akita black bowl next to the ramekin and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 8,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl next to the ramekin and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 8,
+      "seed": 2,
+      "instruction": "Pick the akita black bowl next to the ramekin and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 9,
+      "seed": 0,
+      "instruction": "Pick the akita black bowl on the stove and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 9,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl on the stove and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 9,
+      "seed": 2,
+      "instruction": "Pick the akita black bowl on the stove and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_middle_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 0,
+      "seed": 1,
+      "instruction": "open the middle drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_middle_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 0,
+      "seed": 2,
+      "instruction": "open the middle drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_middle_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 1,
+      "seed": 0,
+      "instruction": "put the bowl on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 1,
+      "seed": 1,
+      "instruction": "put the bowl on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 1,
+      "seed": 2,
+      "instruction": "put the bowl on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 2,
+      "seed": 0,
+      "instruction": "put the wine bottle on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 2,
+      "seed": 1,
+      "instruction": "put the wine bottle on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 2,
+      "seed": 2,
+      "instruction": "put the wine bottle on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 3,
+      "seed": 0,
+      "instruction": "open the top drawer and put the bowl inside",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 3,
+      "seed": 1,
+      "instruction": "open the top drawer and put the bowl inside",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 3,
+      "seed": 2,
+      "instruction": "open the top drawer and put the bowl inside",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 4,
+      "seed": 0,
+      "instruction": "put the bowl on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 4,
+      "seed": 1,
+      "instruction": "put the bowl on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 4,
+      "seed": 2,
+      "instruction": "put the bowl on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 5,
+      "seed": 0,
+      "instruction": "push the plate to the front of the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "push the plate to the front of the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 5,
+      "seed": 2,
+      "instruction": "push the plate to the front of the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 6,
+      "seed": 0,
+      "instruction": "put the cream cheese in the bowl",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 6,
+      "seed": 1,
+      "instruction": "put the cream cheese in the bowl",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 6,
+      "seed": 2,
+      "instruction": "put the cream cheese in the bowl",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 7,
+      "seed": 0,
+      "instruction": "turn on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 7,
+      "seed": 1,
+      "instruction": "turn on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 7,
+      "seed": 2,
+      "instruction": "turn on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 8,
+      "seed": 0,
+      "instruction": "put the bowl on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 8,
+      "seed": 1,
+      "instruction": "put the bowl on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 8,
+      "seed": 2,
+      "instruction": "put the bowl on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 9,
+      "seed": 0,
+      "instruction": "put the wine bottle on the rack",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 9,
+      "seed": 1,
+      "instruction": "put the wine bottle on the rack",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 9,
+      "seed": 2,
+      "instruction": "put the wine bottle on the rack",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "open the bottom drawer of the cabinet",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 0,
+      "seed": 1,
+      "instruction": "open the bottom drawer of the cabinet",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 0,
+      "seed": 2,
+      "instruction": "open the bottom drawer of the cabinet",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 1,
+      "seed": 0,
+      "instruction": "Put the plate on the stove",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "plate_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 1,
+      "seed": 1,
+      "instruction": "Put the plate on the stove",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "plate_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 1,
+      "seed": 2,
+      "instruction": "Put the plate on the stove",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "plate_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 2,
+      "seed": 0,
+      "instruction": "put the wine bottle in the bowl",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 2,
+      "seed": 1,
+      "instruction": "put the wine bottle in the bowl",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 2,
+      "seed": 2,
+      "instruction": "put the wine bottle in the bowl",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 3,
+      "seed": 0,
+      "instruction": "Open the top layer of the drawer and put the cream cheese inside",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 3,
+      "seed": 1,
+      "instruction": "Open the top layer of the drawer and put the cream cheese inside",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 3,
+      "seed": 2,
+      "instruction": "Open the top layer of the drawer and put the cream cheese inside",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 4,
+      "seed": 0,
+      "instruction": "Put the plate on the top of the drawer",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "plate_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 4,
+      "seed": 1,
+      "instruction": "Put the plate on the top of the drawer",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "plate_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 4,
+      "seed": 2,
+      "instruction": "Put the plate on the top of the drawer",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "plate_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 5,
+      "seed": 0,
+      "instruction": "Push the cream cheese to the front of the stove",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "cream_cheese_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "Push the cream cheese to the front of the stove",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "cream_cheese_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 5,
+      "seed": 2,
+      "instruction": "Push the cream cheese to the front of the stove",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "cream_cheese_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 6,
+      "seed": 0,
+      "instruction": "put the wine bottle in the bowl",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 6,
+      "seed": 1,
+      "instruction": "put the wine bottle in the bowl",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 6,
+      "seed": 2,
+      "instruction": "put the wine bottle in the bowl",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 7,
+      "seed": 0,
+      "instruction": "Turn off the stove",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "Turnoff",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 7,
+      "seed": 1,
+      "instruction": "Turn off the stove",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "Turnoff",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 7,
+      "seed": 2,
+      "instruction": "Turn off the stove",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "Turnoff",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 8,
+      "seed": 0,
+      "instruction": "Put the wine bottle on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 8,
+      "seed": 1,
+      "instruction": "Put the wine bottle on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 8,
+      "seed": 2,
+      "instruction": "Put the wine bottle on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 9,
+      "seed": 0,
+      "instruction": "Put the cream cheese on the rack",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "cream_cheese_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 9,
+      "seed": 1,
+      "instruction": "Put the cream cheese on the rack",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "cream_cheese_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 9,
+      "seed": 2,
+      "instruction": "Put the cream cheese on the rack",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "cream_cheese_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 0,
+      "seed": 1,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 0,
+      "seed": 2,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 1,
+      "seed": 0,
+      "instruction": "pick up the cream cheese and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 1,
+      "seed": 1,
+      "instruction": "pick up the cream cheese and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 1,
+      "seed": 2,
+      "instruction": "pick up the cream cheese and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 2,
+      "seed": 0,
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 2,
+      "seed": 1,
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 2,
+      "seed": 2,
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 3,
+      "seed": 0,
+      "instruction": "pick up the bbq sauce and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 3,
+      "seed": 1,
+      "instruction": "pick up the bbq sauce and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 3,
+      "seed": 2,
+      "instruction": "pick up the bbq sauce and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 4,
+      "seed": 0,
+      "instruction": "pick up the ketchup and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 4,
+      "seed": 1,
+      "instruction": "pick up the ketchup and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 4,
+      "seed": 2,
+      "instruction": "pick up the ketchup and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 5,
+      "seed": 0,
+      "instruction": "pick up the tomato sauce and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "pick up the tomato sauce and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 5,
+      "seed": 2,
+      "instruction": "pick up the tomato sauce and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 6,
+      "seed": 0,
+      "instruction": "pick up the butter and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 6,
+      "seed": 1,
+      "instruction": "pick up the butter and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 6,
+      "seed": 2,
+      "instruction": "pick up the butter and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 7,
+      "seed": 0,
+      "instruction": "pick up the milk and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 7,
+      "seed": 1,
+      "instruction": "pick up the milk and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 7,
+      "seed": 2,
+      "instruction": "pick up the milk and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 8,
+      "seed": 0,
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 8,
+      "seed": 1,
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 8,
+      "seed": 2,
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 9,
+      "seed": 0,
+      "instruction": "pick up the orange juice and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 9,
+      "seed": 1,
+      "instruction": "pick up the orange juice and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 9,
+      "seed": 2,
+      "instruction": "pick up the orange juice and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "Pick the cream cheese and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 0,
+      "seed": 1,
+      "instruction": "Pick the cream cheese and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 0,
+      "seed": 2,
+      "instruction": "Pick the cream cheese and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 1,
+      "seed": 0,
+      "instruction": "Pick the alphabet soup and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 1,
+      "seed": 1,
+      "instruction": "Pick the alphabet soup and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 1,
+      "seed": 2,
+      "instruction": "Pick the alphabet soup and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 2,
+      "seed": 0,
+      "instruction": "Pick the tomato sauce and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 2,
+      "seed": 1,
+      "instruction": "Pick the tomato sauce and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 2,
+      "seed": 2,
+      "instruction": "Pick the tomato sauce and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 3,
+      "seed": 0,
+      "instruction": "Pick the ketchup and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 3,
+      "seed": 1,
+      "instruction": "Pick the ketchup and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 3,
+      "seed": 2,
+      "instruction": "Pick the ketchup and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 4,
+      "seed": 0,
+      "instruction": "Pick the milk and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 4,
+      "seed": 1,
+      "instruction": "Pick the milk and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 4,
+      "seed": 2,
+      "instruction": "Pick the milk and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 5,
+      "seed": 0,
+      "instruction": "Pick the bbq sauce and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "Pick the bbq sauce and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 5,
+      "seed": 2,
+      "instruction": "Pick the bbq sauce and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 6,
+      "seed": 0,
+      "instruction": "Pick the orange juice and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 6,
+      "seed": 1,
+      "instruction": "Pick the orange juice and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 6,
+      "seed": 2,
+      "instruction": "Pick the orange juice and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 7,
+      "seed": 0,
+      "instruction": "Pick the butter and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 7,
+      "seed": 1,
+      "instruction": "Pick the butter and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 7,
+      "seed": 2,
+      "instruction": "Pick the butter and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 8,
+      "seed": 0,
+      "instruction": "Pick the salad dressing and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 8,
+      "seed": 1,
+      "instruction": "Pick the salad dressing and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 8,
+      "seed": 2,
+      "instruction": "Pick the salad dressing and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 9,
+      "seed": 0,
+      "instruction": "Pick the chocolate pudding and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 9,
+      "seed": 1,
+      "instruction": "Pick the chocolate pudding and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 9,
+      "seed": 2,
+      "instruction": "Pick the chocolate pudding and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_zero_shot"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 1,
+      "seed": 0,
+      "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 2,
+      "seed": 0,
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 3,
+      "seed": 0,
+      "instruction": "pick up the black bowl on the cookie box and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "seed": 0,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 5,
+      "seed": 0,
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 6,
+      "seed": 0,
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 7,
+      "seed": 0,
+      "instruction": "pick up the black bowl on the stove and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "seed": 0,
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 9,
+      "seed": 0,
+      "instruction": "pick up the black bowl on the wooden cabinet and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_goal",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_middle_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_goal",
+      "task_id": 1,
+      "seed": 0,
+      "instruction": "put the bowl on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_goal",
+      "task_id": 2,
+      "seed": 0,
+      "instruction": "put the wine bottle on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_goal",
+      "task_id": 3,
+      "seed": 0,
+      "instruction": "open the top drawer and put the bowl inside",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_goal",
+      "task_id": 4,
+      "seed": 0,
+      "instruction": "put the bowl on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_goal",
+      "task_id": 5,
+      "seed": 0,
+      "instruction": "push the plate to the front of the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_goal",
+      "task_id": 6,
+      "seed": 0,
+      "instruction": "put the cream cheese in the bowl",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_goal",
+      "task_id": 7,
+      "seed": 0,
+      "instruction": "turn on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_goal",
+      "task_id": 8,
+      "seed": 0,
+      "instruction": "put the bowl on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_goal",
+      "task_id": 9,
+      "seed": 0,
+      "instruction": "put the wine bottle on the rack",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 1,
+      "seed": 0,
+      "instruction": "pick up the cream cheese and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 2,
+      "seed": 0,
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 3,
+      "seed": 0,
+      "instruction": "pick up the bbq sauce and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 4,
+      "seed": 0,
+      "instruction": "pick up the ketchup and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 5,
+      "seed": 0,
+      "instruction": "pick up the tomato sauce and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 6,
+      "seed": 0,
+      "instruction": "pick up the butter and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 7,
+      "seed": 0,
+      "instruction": "pick up the milk and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 8,
+      "seed": 0,
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 9,
+      "seed": 0,
+      "instruction": "pick up the orange juice and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_base_diagnostic"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "one_shot_calibration"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_middle_region"
+        ]
+      ],
+      "cohort": "one_shot_calibration"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "one_shot_calibration"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 0,
+      "seed": 1,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 1,
+      "seed": 1,
+      "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 2,
+      "seed": 1,
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 3,
+      "seed": 1,
+      "instruction": "pick up the black bowl on the cookie box and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 4,
+      "seed": 1,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 6,
+      "seed": 1,
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 7,
+      "seed": 1,
+      "instruction": "pick up the black bowl on the stove and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 8,
+      "seed": 1,
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_swap",
+      "task_id": 9,
+      "seed": 1,
+      "instruction": "pick up the black bowl on the wooden cabinet and place it on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 0,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl not between the plate and the ramekin and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 1,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl next to the cookie box and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 2,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl next to the plate and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 3,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl on the top of the cabinet and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 4,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl on the top of the wooden cabinet and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl on the cookie box and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 6,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl on the stove and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 7,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl on the top of the cabinet and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 8,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl next to the ramekin and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_spatial_task",
+      "task_id": 9,
+      "seed": 1,
+      "instruction": "Pick the akita black bowl on the stove and place it on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_2",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 0,
+      "seed": 1,
+      "instruction": "open the middle drawer of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_middle_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 1,
+      "seed": 1,
+      "instruction": "put the bowl on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 2,
+      "seed": 1,
+      "instruction": "put the wine bottle on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 3,
+      "seed": 1,
+      "instruction": "open the top drawer and put the bowl inside",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 4,
+      "seed": 1,
+      "instruction": "put the bowl on top of the cabinet",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "push the plate to the front of the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 6,
+      "seed": 1,
+      "instruction": "put the cream cheese in the bowl",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 7,
+      "seed": 1,
+      "instruction": "turn on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 8,
+      "seed": 1,
+      "instruction": "put the bowl on the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_swap",
+      "task_id": 9,
+      "seed": 1,
+      "instruction": "put the wine bottle on the rack",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 0,
+      "seed": 1,
+      "instruction": "open the bottom drawer of the cabinet",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "Open",
+          "wooden_cabinet_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 1,
+      "seed": 1,
+      "instruction": "Put the plate on the stove",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "plate_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 2,
+      "seed": 1,
+      "instruction": "put the wine bottle in the bowl",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 3,
+      "seed": 1,
+      "instruction": "Open the top layer of the drawer and put the cream cheese inside",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 4,
+      "seed": 1,
+      "instruction": "Put the plate on the top of the drawer",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "plate_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "Push the cream cheese to the front of the stove",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "cream_cheese_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 6,
+      "seed": 1,
+      "instruction": "put the wine bottle in the bowl",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 7,
+      "seed": 1,
+      "instruction": "Turn off the stove",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "Turnoff",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 8,
+      "seed": 1,
+      "instruction": "Put the wine bottle on the plate",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "wine_bottle_1",
+          "plate_1"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_goal_task",
+      "task_id": 9,
+      "seed": 1,
+      "instruction": "Put the cream cheese on the rack",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "On",
+          "cream_cheese_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 0,
+      "seed": 1,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 1,
+      "seed": 1,
+      "instruction": "pick up the cream cheese and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 2,
+      "seed": 1,
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 3,
+      "seed": 1,
+      "instruction": "pick up the bbq sauce and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 4,
+      "seed": 1,
+      "instruction": "pick up the ketchup and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "pick up the tomato sauce and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 6,
+      "seed": 1,
+      "instruction": "pick up the butter and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 7,
+      "seed": 1,
+      "instruction": "pick up the milk and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 8,
+      "seed": 1,
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_swap",
+      "task_id": 9,
+      "seed": 1,
+      "instruction": "pick up the orange juice and place it in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 0,
+      "seed": 1,
+      "instruction": "Pick the cream cheese and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 1,
+      "seed": 1,
+      "instruction": "Pick the alphabet soup and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 2,
+      "seed": 1,
+      "instruction": "Pick the tomato sauce and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 3,
+      "seed": 1,
+      "instruction": "Pick the ketchup and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 4,
+      "seed": 1,
+      "instruction": "Pick the milk and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "Pick the bbq sauce and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 6,
+      "seed": 1,
+      "instruction": "Pick the orange juice and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 7,
+      "seed": 1,
+      "instruction": "Pick the butter and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 8,
+      "seed": 1,
+      "instruction": "Pick the salad dressing and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_object_task",
+      "task_id": 9,
+      "seed": 1,
+      "instruction": "Pick the chocolate pudding and place it in the basket",
+      "instruction_source": "bddl_task_perturbation_language",
+      "predicates": [
+        [
+          "In",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_pro_one_shot"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 0,
+      "seed": 0,
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 0,
+      "seed": 1,
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 0,
+      "seed": 2,
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 0,
+      "seed": 3,
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 0,
+      "seed": 4,
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 1,
+      "seed": 0,
+      "instruction": "put both the cream cheese box and the butter in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 1,
+      "seed": 1,
+      "instruction": "put both the cream cheese box and the butter in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 1,
+      "seed": 2,
+      "instruction": "put both the cream cheese box and the butter in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 1,
+      "seed": 3,
+      "instruction": "put both the cream cheese box and the butter in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 1,
+      "seed": 4,
+      "instruction": "put both the cream cheese box and the butter in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 2,
+      "seed": 0,
+      "instruction": "turn on the stove and put the moka pot on it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ],
+        [
+          "On",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 2,
+      "seed": 1,
+      "instruction": "turn on the stove and put the moka pot on it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ],
+        [
+          "On",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 2,
+      "seed": 2,
+      "instruction": "turn on the stove and put the moka pot on it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ],
+        [
+          "On",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 2,
+      "seed": 3,
+      "instruction": "turn on the stove and put the moka pot on it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ],
+        [
+          "On",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 2,
+      "seed": 4,
+      "instruction": "turn on the stove and put the moka pot on it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Turnon",
+          "flat_stove_1"
+        ],
+        [
+          "On",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 3,
+      "seed": 0,
+      "instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Close",
+          "white_cabinet_1_bottom_region"
+        ],
+        [
+          "In",
+          "akita_black_bowl_1",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 3,
+      "seed": 1,
+      "instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Close",
+          "white_cabinet_1_bottom_region"
+        ],
+        [
+          "In",
+          "akita_black_bowl_1",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 3,
+      "seed": 2,
+      "instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Close",
+          "white_cabinet_1_bottom_region"
+        ],
+        [
+          "In",
+          "akita_black_bowl_1",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 3,
+      "seed": 3,
+      "instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Close",
+          "white_cabinet_1_bottom_region"
+        ],
+        [
+          "In",
+          "akita_black_bowl_1",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 3,
+      "seed": 4,
+      "instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "Close",
+          "white_cabinet_1_bottom_region"
+        ],
+        [
+          "In",
+          "akita_black_bowl_1",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 4,
+      "seed": 0,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "On",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 4,
+      "seed": 1,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "On",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 4,
+      "seed": 2,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "On",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 4,
+      "seed": 3,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "On",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 4,
+      "seed": 4,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "On",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 5,
+      "seed": 0,
+      "instruction": "pick up the book and place it in the back compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 5,
+      "seed": 1,
+      "instruction": "pick up the book and place it in the back compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 5,
+      "seed": 2,
+      "instruction": "pick up the book and place it in the back compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 5,
+      "seed": 3,
+      "instruction": "pick up the book and place it in the back compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 5,
+      "seed": 4,
+      "instruction": "pick up the book and place it in the back compartment of the caddy",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 6,
+      "seed": 0,
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "On",
+          "chocolate_pudding_1",
+          "living_room_table_plate_right_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 6,
+      "seed": 1,
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "On",
+          "chocolate_pudding_1",
+          "living_room_table_plate_right_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 6,
+      "seed": 2,
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "On",
+          "chocolate_pudding_1",
+          "living_room_table_plate_right_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 6,
+      "seed": 3,
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "On",
+          "chocolate_pudding_1",
+          "living_room_table_plate_right_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 6,
+      "seed": 4,
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "On",
+          "chocolate_pudding_1",
+          "living_room_table_plate_right_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 7,
+      "seed": 0,
+      "instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 7,
+      "seed": 1,
+      "instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 7,
+      "seed": 2,
+      "instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 7,
+      "seed": 3,
+      "instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 7,
+      "seed": 4,
+      "instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "In",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 8,
+      "seed": 0,
+      "instruction": "put both moka pots on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "On",
+          "moka_pot_2",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "Turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 8,
+      "seed": 1,
+      "instruction": "put both moka pots on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "On",
+          "moka_pot_2",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "Turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 8,
+      "seed": 2,
+      "instruction": "put both moka pots on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "On",
+          "moka_pot_2",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "Turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 8,
+      "seed": 3,
+      "instruction": "put both moka pots on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "On",
+          "moka_pot_2",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "Turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 8,
+      "seed": 4,
+      "instruction": "put both moka pots on the stove",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "On",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "On",
+          "moka_pot_2",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "Turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 9,
+      "seed": 0,
+      "instruction": "put the yellow and white mug in the microwave and close it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "white_yellow_mug_1",
+          "microwave_1_heating_region"
+        ],
+        [
+          "Close",
+          "microwave_1"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 9,
+      "seed": 1,
+      "instruction": "put the yellow and white mug in the microwave and close it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "white_yellow_mug_1",
+          "microwave_1_heating_region"
+        ],
+        [
+          "Close",
+          "microwave_1"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 9,
+      "seed": 2,
+      "instruction": "put the yellow and white mug in the microwave and close it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "white_yellow_mug_1",
+          "microwave_1_heating_region"
+        ],
+        [
+          "Close",
+          "microwave_1"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 9,
+      "seed": 3,
+      "instruction": "put the yellow and white mug in the microwave and close it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "white_yellow_mug_1",
+          "microwave_1_heating_region"
+        ],
+        [
+          "Close",
+          "microwave_1"
+        ]
+      ],
+      "cohort": "libero_long"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 9,
+      "seed": 4,
+      "instruction": "put the yellow and white mug in the microwave and close it",
+      "instruction_source": "benchmark_task_language",
+      "predicates": [
+        [
+          "In",
+          "white_yellow_mug_1",
+          "microwave_1_heating_region"
+        ],
+        [
+          "Close",
+          "microwave_1"
+        ]
+      ],
+      "cohort": "libero_long"
+    }
+  ]
+}

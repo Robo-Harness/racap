@@ -1,0 +1,66 @@
+# RATS + LIBERO-PRO Evaluation (non-privileged: SAM3 + GraspGen + pyroki + Molmo)
+# Uses the GraspGen-backed reduced skill-library API.
+#
+# Requires vision servers running:
+#   SAM3:     port 8114
+#   GraspGen: port 5556
+#   pyroki:   port 8116
+#   Molmo:    port 8122 (optional, for fallback object detection)
+#
+# Usage (override suite + task at CLI):
+#   .venv/bin/python scripts/run_rats.py \
+#     --config env_configs/libero/rats_libero_pro_nonpriv.yaml \
+#     --skill-library skill_library/libero_nonpriv_skills.json \
+#     --libero-suite libero_object_swap --iterations 10
+#
+#   .venv/bin/python scripts/run_rats.py \
+#     --config env_configs/libero/rats_libero_pro_nonpriv.yaml \
+#     --skill-library skill_library/libero_nonpriv_skills.json \
+#     --libero-suite libero_goal_swap --explore --iterations 10
+#
+# Available LIBERO-PRO suites:
+#   libero_object_swap  - Position perturbation on libero_object (10 tasks x 50 init states)
+#   libero_object_task  - Task perturbation on libero_object (10 tasks x 50 init states)
+#   libero_goal_swap    - Position perturbation on libero_goal (10 tasks x 50 init states)
+#   libero_goal_task    - Task perturbation on libero_goal (10 tasks x 50 init states)
+#   libero_spatial_swap - Position perturbation on libero_spatial (10 tasks x 50 init states)
+#   libero_spatial_task - Task perturbation on libero_spatial (10 tasks x 50 init states)
+
+env:
+  _target_: rats.envs.tasks.franka.franka_libero_env.FrankaLiberoCodeEnv
+  cfg:
+    _target_: rats.envs.tasks.base.CodeExecEnvConfig
+    low_level:
+      _target_: rats.envs.simulators.libero.FrankaLiberoEnv
+      suite_name: libero_object_swap
+      task_id: 0
+      max_steps: 8000
+      control_freq: 20
+    privileged: false
+    apis:
+      - FrankaLiberoGraspGenApiReducedSkillLibrary
+    prompt: |
+      You are controlling a Franka Emika robot with API described below.
+      Goal: pick up the alphabet soup and place it in the basket
+      You may write python code comments for reasoning but ONLY write the executable Python code and do not write it in code fences.
+      After this code executes, you will be able to get a new observation of the environment and write new code to complete the task if needed.
+      The functions (APIs) below are already imported to the environment. If you want to use numpy, you need to import it explicitly.
+
+api_servers:
+  - _target_: rats.serving.launch_pyroki_server.main
+    port: 8116
+    host: 127.0.0.1
+    robot: panda_description
+    target_link: panda_hand
+
+  - _target_: rats.serving.launch_graspgen_server.main
+    port: 5556
+    host: 127.0.0.1
+
+  - _target_: rats.serving.launch_sam3_server.main
+    device: cuda
+    port: 8114
+    host: 127.0.0.1
+
+record_video: true
+output_dir: ./outputs/rats_libero_pro_nonpriv

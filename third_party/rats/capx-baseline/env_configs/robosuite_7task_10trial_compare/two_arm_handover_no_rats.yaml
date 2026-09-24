@@ -1,0 +1,31 @@
+env:
+  _target_: capx.envs.tasks.franka.two_arm_handover.TwoArmHandoverCodeEnv
+  cfg:
+    _target_: capx.envs.tasks.base.CodeExecEnvConfig
+    low_level: two_arm_handover_robosuite
+    apis:
+    - FrankaControlApiReducedSkillLibraryBimanualHandover
+    prompt: "You are controlling a two-arm Franka Emika robot system with API described below.\nGoal: Arm 0 should pick up the hammer, lift it, and hand it over to Arm 1. Arm 1 should then grasp the hammer handle (not hammer head). The z-value of hammer must be between 0.15 and 0.20 during the handover to count as a success.\n\nCoordinate system:\n- All pose functions accept positions in robot0's base frame (same coordinate system as returned/used by get_object_pose/goto_pose_arm*).\n- The table surface is not necessarily at z=0.\n- The coordinate axis follows these conventions:\n  - Z-axis: up (positive) and down (negative)\n  - X-axis: right (positive) and left (negative) \n  - Y-axis: forward (positive) and backward (negative)\n\nEnvironment details:\n- Arm 0 (left) and Arm 1 (right) are positioned on opposite sides of the table. \n- The hammer handle length is randomized between 0.15m and 0.25m.\n- The hammer initially lies flat on the table, aligned along the Y-axis, with the handle\
+      \ toward +Y and the hammer head toward -Y\n\nCritical information:\n- Handover must occur near the midpoint of the initial gripper positions. Reason about the best handover hammer orientation that allows collision-free transfer to Arm 1.\n- The table does not span the entire region between the two arms. If the hammer falls in the central gap it will drop to the floor, making the task UNRECOVERABLE\n- AVOID COLLISIONS. You must decompose movements into rotation and translation components, moving stepwise. Reason about the optimal sequence of waypoints to safely avoid collisions.\n- Arm links have volume, and intermediate motions are not collision-checked. Keep a minimum 8cm buffer between grippers\n\nReference quaternions:\n- Arm0 gripper facing down opening along X-axis: [0, 0.707, 0.707, 0].\n- Arm0 gripper facing down opening along Y-axis: [0, 1, 0, 0].\n- Arm1 gripper facing down opening along Y-axis: [0, 0, 1, 0].\n\nArm gripper approximate initial starting positions (robot0 frame).\
+      \ These values are rough and may vary by a few centimeters each trial:\n- Arm0: x \u2248 0.44. y \u2248 0.0\n- Arm1: x \u2248 1.18. y \u2248 0.0\n\nYou may write python code comments for reasoning but ONLY write the executable Python code and do not write it in code fences.\nAfter this code executes, you will receive the current console stdout and stderr (any errors or print statements made in the code). You will then have the chance to write new code to query the environment state and/or complete the task.\nThe functions (APIs) below are already imported to the environment. If you want to use numpy, you need to import it explicitly.\n"
+    multi_turn_prompt: null
+api_servers:
+- _target_: capx.serving.launch_sam3_server.main
+  device: cuda
+  port: 8114
+  host: 127.0.0.1
+- _target_: capx.serving.launch_contact_graspnet_server.main
+  port: 8115
+  host: 127.0.0.1
+- _target_: capx.serving.launch_pyroki_server.main
+  port: 8116
+  host: 127.0.0.1
+  robot: panda_description
+  target_link: panda_hand
+record_video: true
+use_img_differencing: true
+use_oracle_code: false
+save_multiturn_prompts: true
+output_dir: ./outputs/capx_robosuite_7task_10trial_no_rats/two_arm_handover
+trials: 5
+num_workers: 1

@@ -1,0 +1,502 @@
+schema_version: 2
+protocol_id: racap_controlled
+status: frozen_before_baseline_rollouts
+claims:
+  primary: Compare frozen deploy-time systems after a common LIBERO-90 development pool under matched
+    runtime model access, worker count, and evaluator.
+  zero_shot: Generalization to LIBERO-PRO task/object/spatial perturbations with no access to PRO tasks,
+    observations, rollouts, rewards, or memory updates before artifact freeze.
+  limitation: RACaP begins from a mature Phase 1 policy whereas RATS begins from its published executor
+    and an empty LIBERO-specific learned-skill library; final rows are a system-level comparison, and
+    within-family deltas isolate learning gains.
+development:
+  pool: libero_90
+  init_state_policy:
+    racap: archived_historical_rollouts
+    rats: deterministic_round_index_within_libero_90
+  racap:
+    action: reuse_frozen_artifact
+    artifact: policies/phase2
+    audited_proposals: 32
+    audited_runtime_candidates: 23
+    audited_retained_parent_evaluations: 14
+    audited_simulator_episodes: 596
+    audited_promotions: 9
+    token_accounting: unavailable
+  rats:
+    initial_library: empty_libero_specific_library
+    maximum_update_rounds: 15
+    maximum_total_simulator_resets: 596
+    maximum_attempts_per_play_task: 5
+    checkpoints_at_budget_fraction:
+    - 0.25
+    - 0.5
+    - 0.75
+    - 1.0
+    selection_data: libero_90_only
+    pro_feedback_forbidden: true
+    freeze:
+    - learned_skill_library
+    - failure_memory
+runtime:
+  provider: vapi
+  requested_model: gpt-5.5
+  temperature: 0.0
+  workers: 10
+  maximum_concurrent_model_requests: 10
+  generated_method_service_ports:
+    sam3: 8214
+    contact_graspnet: 8215
+    pyroki: 8216
+    ownership: per_method_parent_process
+    note: Dedicated comparison ports avoid silently sharing unrelated long-lived services on the upstream
+      defaults 8114--8116. Both generated-code systems use the same vendored server implementations and
+      weights.
+  exact_response_cache: false
+  simulator_horizon: 8000
+  episode_wall_time_seconds: 1000
+  simulator_episode_semantics:
+    registered_initial_states_per_episode: 1
+    post_action_environment_resets: 0
+    note: Reset-based attempts and runtime self-check rollouts are permitted during RATS development but
+      disabled for every frozen evaluation. CaP-X and RATS receive ten continuous visual code-revision
+      turns in the main, zero-shot, one-trial, and LIBERO-Long grids. The custom generous-budget task
+      uses 25 continuous turns for both generated-code systems. RACaP's ReAct loop remains bounded by
+      the same 8000 simulator-step episode; its method-specific reasoning calls are measured rather than
+      equated to a generated source-code turn.
+  record_video: true
+  record_human_trace: true
+  record_request_telemetry: true
+  cost_estimate:
+    price_snapshot: experiments/controlled_comparison/pricing_snapshot.yaml
+    basis: per_request_reported_token_usage
+    actual_vapi_markup_available: false
+  video_for_image_only_model: uniform_first_middle_last_keyframes
+  episode_process_isolation: true
+  seed_convention:
+    public_seed_zero: 0
+    rats_internal_trial_seed: 1
+    libero_init_state_index: 0
+    telemetry_source: simulator_applied_index
+    registered_episode_key_separate_from_internal_trial_seed: true
+  quota_exit_code: 75
+  native_evaluator_isolation:
+    authority: binary_success_label_only
+    private_audit_retention: true
+    forbidden_control_feedback:
+    - exact_predicate_text
+    - per_predicate_satisfied_state
+    - predicate_matched_plan_steps
+    - predicate_aware_llm_analysis
+    - predicate_derived_failure_memory
+  instruction_authority:
+    default: benchmark_task_language
+    task_perturbation_suites:
+    - libero_spatial_task
+    - libero_goal_task
+    - libero_object_task
+    - libero_10_task
+    task_perturbation_source: public_bddl_language
+    rationale: LIBERO-PRO task perturbation rewrites the public BDDL language and native goal while retaining
+      the source filename. Upstream Task.language is filename-derived and therefore stale for these suites.
+      The BDDL (:language ...) field is the perturbator-produced public instruction; native predicates
+      remain private evaluator-only data.
+  internal_model_routing:
+    policy: explicit_single_model_binding
+    reasoning_model: gpt-5.5
+    runtime_vlm_model: gpt-5.5
+    silent_fallback_to_other_provider: forbidden
+  anomaly_review:
+    ranking_is_not_enforced: true
+    frozen_racap_libero90_seed0_review_floor: 30
+    note: Earlier archived Phase 1 revisions scored approximately 47/90 and 48/90. Falling below 30/90
+      pauses for implementation review but never changes, censors, or reruns a score merely to obtain
+      the expected ranking.
+  latency_reporting:
+    reported_capx_episodes_at_two_workers: 141
+    current_workers: 10
+    rule: Report worker and request concurrency for each latency cohort; do not pool different regimes
+      into an unqualified speed claim.
+methods:
+- id: capx
+  label: CaP-X
+  development: none
+  persistent_library: none
+  runtime_source_generation: true
+- id: rats_base
+  label: RATS-base
+  development: none
+  persistent_library: empty
+  runtime_source_generation: true
+- id: rats_90
+  label: RATS-90
+  development: matched_libero_90_self_play
+  persistent_library: frozen_after_development
+  runtime_source_generation: true
+- id: racap_phase1
+  label: RACaP-Phase 1
+  development: human_engineered_libero_90
+  persistent_library: frozen_policy_apis_and_memory
+  runtime_source_generation: false
+- id: racap_phase2
+  label: RACaP-Phase 2
+  development: archived_racap_evolution
+  persistent_library: frozen_policy_apis_and_memory
+  runtime_source_generation: false
+- id: racap_phase2_robosuite_zero_shot
+  label: RACaP-L90-zero-shot
+  development: archived_racap_evolution_on_libero_90_only
+  persistent_library: frozen_policy_apis_and_memory
+  runtime_source_generation: false
+  embodiment_adapter: non_privileged_geometry_neutral_robosuite_backend
+- id: rats_rs_evolved
+  label: RATS-RS-evolved
+  development: matched_registered_robosuite_development_pool
+  persistent_library: frozen_after_development
+  runtime_source_generation: true
+- id: racap_rs_evolved
+  label: RACaP-RS-evolved
+  development: matched_registered_robosuite_development_pool
+  persistent_library: frozen_policy_apis_and_memory_after_development
+  runtime_source_generation: false
+evaluation:
+  method_execution_order:
+  - capx
+  - rats_base
+  - rats_90
+  - racap_phase1
+  - racap_phase2
+  run_one_method_at_a_time: true
+  cohorts:
+  - id: libero90_id_replay
+    kind: in_domain_development_replay
+    suites:
+    - libero_90
+    task_ids: all
+    seeds:
+    - 0
+    episodes_per_method: 90
+  - id: libero_pro_zero_shot
+    kind: zero_shot
+    suites:
+    - libero_spatial_swap
+    - libero_spatial_task
+    - libero_goal_swap
+    - libero_goal_task
+    - libero_object_swap
+    - libero_object_task
+    task_ids: all
+    seeds:
+    - 0
+    - 1
+    - 2
+    episodes_per_method: 180
+    freeze_before_first_episode: true
+    cross_episode_memory_writes: false
+  - id: libero_base_diagnostic
+    kind: zero_shot_base_suite_diagnostic
+    suites:
+    - libero_spatial
+    - libero_goal
+    - libero_object
+    task_ids: all
+    seeds:
+    - 0
+    episodes_per_method: 30
+  - id: one_shot_calibration
+    kind: one_labeled_target_domain_interaction
+    execution: reuse_exact_registered_zero_shot_episode
+    source_cohort: libero_pro_zero_shot
+    reuse_rationale: The selected suite/task/seed identities are identical to episodes already measured
+      in the zero-shot grid and were fixed before outcomes were observed. Reuse exposes exactly the same
+      public trajectory, frames, and final success bit without executing a duplicate simulator interaction.
+    resource_accounting: count_original_trajectory_time_calls_tokens_cost_and_steps
+    suites:
+    - libero_spatial_swap
+    - libero_goal_swap
+    - libero_object_swap
+    task_ids:
+    - 0
+    seeds:
+    - 0
+    episodes_per_method: 3
+    score_as_evaluation: false
+  - id: libero_pro_one_shot
+    kind: one_trial_adaptation_test
+    suites:
+    - libero_spatial_swap
+    - libero_spatial_task
+    - libero_goal_swap
+    - libero_goal_task
+    - libero_object_swap
+    - libero_object_task
+    task_ids: all
+    seeds:
+    - 1
+    episodes_per_method: 60
+    paired_zero_shot_reference: libero_pro_zero_shot_seed_1_slice
+  - id: libero_long
+    kind: long_horizon
+    suites:
+    - libero_10
+    task_ids: all
+    seeds:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    episodes_per_method: 50
+  - id: robosuite_executor_diagnostic
+    kind: cross_task_transfer
+    methods:
+    - capx
+    - rats_90
+    note: Secondary executor-matched diagnostic. Both rows use the CaP-X Robosuite executor; rats_90 additionally
+      retrieves the frozen LIBERO-90 RATS skill library as planner context. This contrast remains separately
+      identifiable even after adding the native RACaP backend; it isolates retrieval while keeping the
+      executor fixed.
+    suites:
+    - cube_lifting
+    - cube_restack
+    - cube_stack
+    - nut_assembly
+    - spill_wipe
+    - two_arm_handover
+    - two_arm_lift
+    seeds:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    episodes_per_method: 35
+    effective_trial_workers: 5
+    resets_per_episode: 1
+    post_action_resets: 0
+    shared_parent_owned_services:
+    - sam3
+    - contact_graspnet
+    - pyroki
+    service_readiness_policy: fail_closed_before_first_reset
+    resolved_config_policy: Compare every persisted task YAML structurally across methods and allow only
+      output paths plus the registered frozen-library planner retrieval fields for rats_90.
+    hosted_model: gpt-5.5
+    artifact_updates: false
+  - id: robosuite_racap_zero_shot
+    kind: cross_embodiment_zero_shot
+    methods:
+    - racap_phase2_robosuite_zero_shot
+    reuse_baseline_rows_from: robosuite_executor_diagnostic
+    suites:
+    - cube_lifting
+    - cube_restack
+    - cube_stack
+    - nut_assembly
+    - spill_wipe
+    - two_arm_handover
+    - two_arm_lift
+    seeds:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    episodes_per_method: 35
+    effective_trial_workers: 5
+    hosted_model: gpt-5.5
+    adapter_policy: The adapter may translate calibrated RGB-D, Cartesian, IK, joint and gripper interfaces,
+      but may not contain task-conditioned trajectories, success feedback, object-pose truth, or policy/memory
+      changes. The LIBERO-90 champion tree is hashed before execution and remains frozen.
+    adapter_calibration: Contract unit tests and separately registered development seeds only; no evaluation
+      seed and no native-success-conditioned policy edit.
+    artifact_updates: false
+  - id: robosuite_evolved_evaluation
+    kind: in_domain_evolution_with_held_out_tasks
+    methods:
+    - rats_rs_evolved
+    - racap_rs_evolved
+    suites:
+    - cube_lifting
+    - cube_restack
+    - cube_stack
+    - nut_assembly
+    - spill_wipe
+    - two_arm_handover
+    - two_arm_lift
+    seeds:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    episodes_per_method: 35
+    seen_task_unseen_seed_tasks:
+    - cube_lifting
+    - cube_stack
+    - nut_assembly
+    - spill_wipe
+    - two_arm_lift
+    held_out_task_tasks:
+    - cube_restack
+    - two_arm_handover
+    effective_trial_workers: 5
+    hosted_model: gpt-5.5
+    artifact_updates: false
+robosuite_development:
+  tasks:
+  - cube_lifting
+  - cube_stack
+  - nut_assembly
+  - spill_wipe
+  - two_arm_lift
+  seeds:
+  - 100
+  - 101
+  - 102
+  episodes_per_complete_sweep: 15
+  excluded_evaluation_seeds:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  held_out_task_types:
+  - cube_restack
+  - two_arm_handover
+  simulator_tested_candidates:
+    racap_rs_evolved: 15
+    rats_rs_evolved: 3
+  source_generation_attempt_cap: null
+  source_generation_failures_consume_physical_budget: false
+  methods:
+  - rats_rs_evolved
+  - racap_rs_evolved
+  privileged_runtime: false
+  matched_resources:
+    same_episode_sequence: true
+    same_rollout_count: false
+    budget_basis: approximately_equal_effective_development_wall_time
+    baseline_sweeps_per_method: 1
+    candidate_sweeps:
+      racap_rs_evolved: 15
+      rats_rs_evolved: 3
+    total_physical_episodes:
+      racap_rs_evolved: 240
+      rats_rs_evolved: 60
+    timing_basis: A registered pre-run timing audit measured approximately 6 minutes per RACaP 15-episode
+      sweep and 37.6 minutes per RATS sweep. Three complete RATS candidate sweeps plus baseline target
+      the full RACaP development time envelope without truncating either method inside an episode.
+    same_reasoning_model_route: gpt-5.5
+    algorithm_native_update_calls: true
+    report_actual_update_calls_tokens_cost: true
+    report_actual_wall_time_and_trajectories: true
+    same_parallel_workers: true
+  promotion: Promote only a candidate with higher paired development native-success count. Exact-success
+    ties may record an efficiency checkpoint but do not replace the capability champion. No code-length
+    threshold or expected-ranking gate is used.
+  leakage_controls:
+    evaluation_frames_visible_during_development: false
+    evaluation_native_success_visible_during_development: false
+    evaluation_prompts_in_critic_memory: false
+    held_out_task_rollouts_visible_during_development: false
+long_horizon_custom:
+  fixed_budget:
+    wall_clock_minutes:
+    - 5
+    - 10
+    report:
+    - completed_objects
+    - completion_fraction
+    - objects_per_minute
+    - tokens
+    - cost
+  generous_budget:
+    stop_condition: agent_stop_or_simulator_horizon_8000
+    report:
+    - final_completion_fraction
+    - full_success
+    - time_to_completion
+    - tokens
+    - cost
+transfer:
+  zero_shot:
+    artifact_updates: false
+    cross_episode_success_code_carryover: false
+    cross_episode_failure_memory_carryover: false
+  one_shot:
+    name: one_labeled_target_domain_interaction
+    clarification: This is one-trial adaptation rather than an expert-trajectory imitation claim. Each
+      method receives exactly one calibration rollout from each target family, its public trace and frames,
+      and only the final native success bit. A common frozen critic converts that evidence into one bounded
+      experience card. Predicate text and simulator state are hidden.
+    target_families:
+    - spatial
+    - goal
+    - object
+    calibration_episodes:
+      spatial:
+        suite: libero_spatial_swap
+        task_id: 0
+        seed: 0
+      goal:
+        suite: libero_goal_swap
+        task_id: 0
+        seed: 0
+      object:
+        suite: libero_object_swap
+        task_id: 0
+        seed: 0
+    calibration_execution: reuse_exact_registered_zero_shot_episode
+    calibration_source_cohort: libero_pro_zero_shot
+    calibration_resource_accounting: Count the original rollout wall time, model calls, tokens, estimated
+      cost, and simulator steps in the adaptation budget. Reuse saves only the duplicate physical execution
+      and does not make adaptation free.
+    experience_card:
+      critic_model: gpt-5.5
+      temperature: 0.0
+      maximum_words: 400
+      common_schema: true
+      injected_as_read_only_runtime_context: true
+    paired_test:
+      suites:
+      - libero_spatial_swap
+      - libero_spatial_task
+      - libero_goal_swap
+      - libero_goal_task
+      - libero_object_swap
+      - libero_object_task
+      task_ids: all
+      seeds:
+      - 1
+      episodes_per_method: 60
+      paired_zero_shot_reference: libero_pro_zero_shot_seed_1_slice
+    updates_after_calibration: false
+    updates_between_test_episodes: false
+statistics:
+  confidence_level: 0.95
+  success_interval: wilson
+  paired_success_test: exact_mcnemar
+  multiple_comparison_correction: holm
+  continuous_interval: paired_task_bootstrap
+  bootstrap_resamples: 10000
+  random_seed: 20260822
+  primary_metric: native_success_rate
+  secondary_metrics:
+  - native_predicate_completion
+  - wall_clock_seconds
+  - model_latency_seconds
+  - model_calls
+  - prompt_tokens
+  - completion_tokens
+  - cached_tokens
+  - estimated_api_cost_usd
+  - policy_or_skill_calls
+  - simulator_steps
+  - method_native_turns
+robosuite_public_contract:
+  cartesian_pose: live end-effector-link pose in the robot base frame
+  calibration_uses_evaluation_seed: false
+  invalid_adapter_evidence_in_scores: false
+  candidate_tests: Preserve public interfaces, safety, and unrelated regressions; capability tests may
+    change when a proposed mechanism supersedes a capability limitation.
